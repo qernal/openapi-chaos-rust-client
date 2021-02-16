@@ -1,11 +1,11 @@
-# InlineObject
+# BatchProject
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**project** | [**crate::models::BatchProject**](_batch_project.md) |  | 
-**functions** | [**Vec<crate::models::BatchFunctions>**](_batch_functions.md) |  | 
+**name** | **String** |  | 
+**domain** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

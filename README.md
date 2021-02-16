@@ -24,29 +24,31 @@ All URIs are relative to *http://localhost:3000*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**delete_clusters_cluster_id**](docs/DefaultApi.md#delete_clusters_cluster_id) | **delete** /clusters/{cluster-id} | Delete cluster
-*DefaultApi* | [**delete_projects_project_id**](docs/DefaultApi.md#delete_projects_project_id) | **delete** /projects/{project-id} | Delete project
-*DefaultApi* | [**delete_projects_project_id_functions_function_id**](docs/DefaultApi.md#delete_projects_project_id_functions_function_id) | **delete** /projects/{project-id}/functions/{function-id} | Delete function
-*DefaultApi* | [**get_clusters**](docs/DefaultApi.md#get_clusters) | **get** /clusters | Get clusters
-*DefaultApi* | [**get_clusters_cluster_id**](docs/DefaultApi.md#get_clusters_cluster_id) | **get** /clusters/{cluster-id} | Get specific cluster
-*DefaultApi* | [**get_projects**](docs/DefaultApi.md#get_projects) | **get** /projects | Get projects
-*DefaultApi* | [**get_projects_project_id**](docs/DefaultApi.md#get_projects_project_id) | **get** /projects/{project-id} | Get project
-*DefaultApi* | [**get_projects_project_id_functions**](docs/DefaultApi.md#get_projects_project_id_functions) | **get** /projects/{project-id}/functions | Get all project functions
-*DefaultApi* | [**get_projects_project_id_functions_function_id**](docs/DefaultApi.md#get_projects_project_id_functions_function_id) | **get** /projects/{project-id}/functions/{function-id} | Get function
-*DefaultApi* | [**get_system_health**](docs/DefaultApi.md#get_system_health) | **get** /system/health | System Health
-*DefaultApi* | [**post_clsuters_register**](docs/DefaultApi.md#post_clsuters_register) | **post** /clusters | Register cluster
-*DefaultApi* | [**post_deployments**](docs/DefaultApi.md#post_deployments) | **post** /deployments | Create Deployment
-*DefaultApi* | [**post_projects**](docs/DefaultApi.md#post_projects) | **post** /projects | Create project
-*DefaultApi* | [**put_clusters_cluster_id**](docs/DefaultApi.md#put_clusters_cluster_id) | **put** /clusters/{cluster-id} | Update cluster
-*DefaultApi* | [**put_projects_project_id_functions_function_id**](docs/DefaultApi.md#put_projects_project_id_functions_function_id) | **put** /projects/{project-id}/functions/{function-id} | Update function
+*ClustersApi* | [**delete_clusters_cluster_id**](docs/ClustersApi.md#delete_clusters_cluster_id) | **delete** /clusters/{cluster-id} | Delete cluster
+*ClustersApi* | [**get_clusters**](docs/ClustersApi.md#get_clusters) | **get** /clusters | Get clusters
+*ClustersApi* | [**get_clusters_cluster_id**](docs/ClustersApi.md#get_clusters_cluster_id) | **get** /clusters/{cluster-id} | Get specific cluster
+*ClustersApi* | [**post_clsuters_register**](docs/ClustersApi.md#post_clsuters_register) | **post** /clusters | Register cluster
+*ClustersApi* | [**put_clusters_cluster_id**](docs/ClustersApi.md#put_clusters_cluster_id) | **put** /clusters/{cluster-id} | Update cluster
+*DeployApi* | [**post_deployments**](docs/DeployApi.md#post_deployments) | **post** /batch | Create Batch of Functions
+*FunctionsApi* | [**delete_projects_project_id_functions_function_id**](docs/FunctionsApi.md#delete_projects_project_id_functions_function_id) | **delete** /projects/{project-id}/functions/{function-id} | Delete function
+*FunctionsApi* | [**get_projects_project_id_functions**](docs/FunctionsApi.md#get_projects_project_id_functions) | **get** /projects/{project-id}/functions | Get all project functions
+*FunctionsApi* | [**get_projects_project_id_functions_function_id**](docs/FunctionsApi.md#get_projects_project_id_functions_function_id) | **get** /projects/{project-id}/functions/{function-id} | Get function
+*FunctionsApi* | [**post_deployments**](docs/FunctionsApi.md#post_deployments) | **post** /batch | Create Batch of Functions
+*FunctionsApi* | [**put_projects_project_id_functions_function_id**](docs/FunctionsApi.md#put_projects_project_id_functions_function_id) | **put** /projects/{project-id}/functions/{function-id} | Update function
+*ProjectsApi* | [**delete_projects_project_id**](docs/ProjectsApi.md#delete_projects_project_id) | **delete** /projects/{project-id} | Delete project
+*ProjectsApi* | [**get_projects**](docs/ProjectsApi.md#get_projects) | **get** /projects | Get projects
+*ProjectsApi* | [**get_projects_project_id**](docs/ProjectsApi.md#get_projects_project_id) | **get** /projects/{project-id} | Get project
+*ProjectsApi* | [**get_projects_project_id_functions**](docs/ProjectsApi.md#get_projects_project_id_functions) | **get** /projects/{project-id}/functions | Get all project functions
+*ProjectsApi* | [**post_projects**](docs/ProjectsApi.md#post_projects) | **post** /projects | Create project
+*SystemApi* | [**get_system_health**](docs/SystemApi.md#get_system_health) | **get** /system/health | System Health
 
 
 ## Documentation For Models
 
- - [DeploymentsBuild](docs/DeploymentsBuild.md)
- - [DeploymentsFunctions](docs/DeploymentsFunctions.md)
- - [DeploymentsProject](docs/DeploymentsProject.md)
- - [DeploymentsRoute](docs/DeploymentsRoute.md)
+ - [BatchBuild](docs/BatchBuild.md)
+ - [BatchFunctions](docs/BatchFunctions.md)
+ - [BatchProject](docs/BatchProject.md)
+ - [BatchRoute](docs/BatchRoute.md)
  - [InlineObject](docs/InlineObject.md)
 
 

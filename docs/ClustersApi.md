@@ -1,0 +1,157 @@
+# \ClustersApi
+
+All URIs are relative to *http://localhost:3000*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**delete_clusters_cluster_id**](ClustersApi.md#delete_clusters_cluster_id) | **delete** /clusters/{cluster-id} | Delete cluster
+[**get_clusters**](ClustersApi.md#get_clusters) | **get** /clusters | Get clusters
+[**get_clusters_cluster_id**](ClustersApi.md#get_clusters_cluster_id) | **get** /clusters/{cluster-id} | Get specific cluster
+[**post_clsuters_register**](ClustersApi.md#post_clsuters_register) | **post** /clusters | Register cluster
+[**put_clusters_cluster_id**](ClustersApi.md#put_clusters_cluster_id) | **put** /clusters/{cluster-id} | Update cluster
+
+
+
+## delete_clusters_cluster_id
+
+> delete_clusters_cluster_id(cluster_id)
+Delete cluster
+
+Delete the cluster
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**cluster_id** | **String** |  | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_clusters
+
+> get_clusters()
+Get clusters
+
+Get all the clusters currently linked
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_clusters_cluster_id
+
+> get_clusters_cluster_id(cluster_id)
+Get specific cluster
+
+Get a specific cluster
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**cluster_id** | **String** |  | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## post_clsuters_register
+
+> post_clsuters_register()
+Register cluster
+
+Register a new cluster into the system
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## put_clusters_cluster_id
+
+> put_clusters_cluster_id(cluster_id)
+Update cluster
+
+Update cluster
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**cluster_id** | **String** |  | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
