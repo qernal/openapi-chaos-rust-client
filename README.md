@@ -49,7 +49,9 @@ Class | Method | HTTP request | Description
  - [BatchFunctions](docs/BatchFunctions.md)
  - [BatchProject](docs/BatchProject.md)
  - [BatchRoute](docs/BatchRoute.md)
+ - [ClustersLocation](docs/ClustersLocation.md)
  - [InlineObject](docs/InlineObject.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
 
 
 To get access to the crate's generated documentation, use:

@@ -13,17 +13,23 @@
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct InlineObject {
-    #[serde(rename = "project")]
-    pub project: crate::models::BatchProject,
-    #[serde(rename = "functions")]
-    pub functions: Vec<crate::models::BatchFunctions>,
+    #[serde(rename = "name")]
+    pub name: String,
+    #[serde(rename = "address")]
+    pub address: String,
+    #[serde(rename = "location")]
+    pub location: crate::models::ClustersLocation,
+    #[serde(rename = "provider")]
+    pub provider: String,
 }
 
 impl InlineObject {
-    pub fn new(project: crate::models::BatchProject, functions: Vec<crate::models::BatchFunctions>) -> InlineObject {
+    pub fn new(name: String, address: String, location: crate::models::ClustersLocation, provider: String) -> InlineObject {
         InlineObject {
-            project,
-            functions,
+            name,
+            address,
+            location,
+            provider,
         }
     }
 }

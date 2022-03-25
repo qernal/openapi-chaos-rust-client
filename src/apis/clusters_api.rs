@@ -133,7 +133,7 @@ pub async fn get_clusters_cluster_id(configuration: &configuration::Configuratio
 }
 
 /// Register a new cluster into the system
-pub async fn post_clsuters_register(configuration: &configuration::Configuration, ) -> Result<(), Error<PostClsutersRegisterError>> {
+pub async fn post_clsuters_register(configuration: &configuration::Configuration, inline_object: Option<crate::models::InlineObject>) -> Result<crate::models::InlineResponse200, Error<PostClsutersRegisterError>> {
 
     let local_var_client = &configuration.client;
 
@@ -143,6 +143,7 @@ pub async fn post_clsuters_register(configuration: &configuration::Configuration
     if let Some(ref local_var_user_agent) = configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&inline_object);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -151,7 +152,7 @@ pub async fn post_clsuters_register(configuration: &configuration::Configuration
     let local_var_content = local_var_resp.text().await?;
 
     if local_var_status.is_success() {
-        Ok(())
+        serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<PostClsutersRegisterError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };

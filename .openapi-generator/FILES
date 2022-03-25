@@ -7,9 +7,11 @@ docs/BatchFunctions.md
 docs/BatchProject.md
 docs/BatchRoute.md
 docs/ClustersApi.md
+docs/ClustersLocation.md
 docs/DeployApi.md
 docs/FunctionsApi.md
 docs/InlineObject.md
+docs/InlineResponse200.md
 docs/ProjectsApi.md
 docs/SystemApi.md
 git_push.sh
@@ -25,5 +27,7 @@ src/models/_batch_build.rs
 src/models/_batch_functions.rs
 src/models/_batch_project.rs
 src/models/_batch_route.rs
+src/models/_clusters_location.rs
 src/models/inline_object.rs
+src/models/inline_response_200.rs
 src/models/mod.rs
