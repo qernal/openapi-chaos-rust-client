@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct BatchFunctions {
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "description")]
     pub description: String,
     #[serde(rename = "build", skip_serializing_if = "Option::is_none")]
-    pub build: Option<crate::models::BatchBuild>,
+    pub build: Option<Box<crate::models::BatchBuild>>,
     #[serde(rename = "image")]
     pub image: String,
     #[serde(rename = "route", skip_serializing_if = "Option::is_none")]
-    pub route: Option<crate::models::BatchRoute>,
+    pub route: Option<Box<crate::models::BatchRoute>>,
 }
 
 impl BatchFunctions {

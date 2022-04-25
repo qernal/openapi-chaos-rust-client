@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `get_system_health`
+/// struct for typed errors of method [`get_system_health`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetSystemHealthError {
@@ -25,13 +25,14 @@ pub enum GetSystemHealthError {
 
 /// Get health of Chaos
 pub async fn get_system_health(configuration: &configuration::Configuration, ) -> Result<(), Error<GetSystemHealthError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/system/health", configuration.base_path);
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/system/health", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
@@ -41,7 +42,7 @@ pub async fn get_system_health(configuration: &configuration::Configuration, ) -
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
         let local_var_entity: Option<GetSystemHealthError> = serde_json::from_str(&local_var_content).ok();

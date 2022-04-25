@@ -15,7 +15,7 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `post_deployments`
+/// struct for typed errors of method [`post_deployments`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostDeploymentsError {
@@ -25,13 +25,14 @@ pub enum PostDeploymentsError {
 
 /// Batch can contain more than one project with many functions in - it allows you to deploy an entire API in one go rather than individual functions
 pub async fn post_deployments(configuration: &configuration::Configuration, inline_object: Option<Vec<crate::models::InlineObject>>) -> Result<(), Error<PostDeploymentsError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/batch", configuration.base_path);
-    let mut local_var_req_builder = local_var_client.post(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/batch", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     local_var_req_builder = local_var_req_builder.json(&inline_object);
@@ -42,7 +43,7 @@ pub async fn post_deployments(configuration: &configuration::Configuration, inli
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
         let local_var_entity: Option<PostDeploymentsError> = serde_json::from_str(&local_var_content).ok();

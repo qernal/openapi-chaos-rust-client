@@ -15,35 +15,35 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `delete_clusters_cluster_id`
+/// struct for typed errors of method [`delete_clusters_cluster_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteClustersClusterIdError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_clusters`
+/// struct for typed errors of method [`get_clusters`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetClustersError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_clusters_cluster_id`
+/// struct for typed errors of method [`get_clusters_cluster_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetClustersClusterIdError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `post_clsuters_register`
+/// struct for typed errors of method [`post_clsuters_register`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostClsutersRegisterError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `put_clusters_cluster_id`
+/// struct for typed errors of method [`put_clusters_cluster_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PutClustersClusterIdError {
@@ -53,13 +53,14 @@ pub enum PutClustersClusterIdError {
 
 /// Delete the cluster
 pub async fn delete_clusters_cluster_id(configuration: &configuration::Configuration, cluster_id: &str) -> Result<(), Error<DeleteClustersClusterIdError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/clusters/{cluster-id}", configuration.base_path, cluster-id=crate::apis::urlencode(cluster_id));
-    let mut local_var_req_builder = local_var_client.delete(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/clusters/{cluster-id}", local_var_configuration.base_path, cluster-id=crate::apis::urlencode(cluster_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
@@ -69,7 +70,7 @@ pub async fn delete_clusters_cluster_id(configuration: &configuration::Configura
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
         let local_var_entity: Option<DeleteClustersClusterIdError> = serde_json::from_str(&local_var_content).ok();
@@ -80,13 +81,14 @@ pub async fn delete_clusters_cluster_id(configuration: &configuration::Configura
 
 /// Get all the clusters currently linked
 pub async fn get_clusters(configuration: &configuration::Configuration, ) -> Result<(), Error<GetClustersError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/clusters", configuration.base_path);
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/clusters", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
@@ -96,7 +98,7 @@ pub async fn get_clusters(configuration: &configuration::Configuration, ) -> Res
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
         let local_var_entity: Option<GetClustersError> = serde_json::from_str(&local_var_content).ok();
@@ -107,13 +109,14 @@ pub async fn get_clusters(configuration: &configuration::Configuration, ) -> Res
 
 /// Get a specific cluster
 pub async fn get_clusters_cluster_id(configuration: &configuration::Configuration, cluster_id: &str) -> Result<(), Error<GetClustersClusterIdError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/clusters/{cluster-id}", configuration.base_path, cluster-id=crate::apis::urlencode(cluster_id));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/clusters/{cluster-id}", local_var_configuration.base_path, cluster-id=crate::apis::urlencode(cluster_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
@@ -123,7 +126,7 @@ pub async fn get_clusters_cluster_id(configuration: &configuration::Configuratio
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
         let local_var_entity: Option<GetClustersClusterIdError> = serde_json::from_str(&local_var_content).ok();
@@ -134,13 +137,14 @@ pub async fn get_clusters_cluster_id(configuration: &configuration::Configuratio
 
 /// Register a new cluster into the system
 pub async fn post_clsuters_register(configuration: &configuration::Configuration, inline_object: Option<crate::models::InlineObject>) -> Result<crate::models::InlineResponse200, Error<PostClsutersRegisterError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/clusters", configuration.base_path);
-    let mut local_var_req_builder = local_var_client.post(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/clusters", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     local_var_req_builder = local_var_req_builder.json(&inline_object);
@@ -151,7 +155,7 @@ pub async fn post_clsuters_register(configuration: &configuration::Configuration
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<PostClsutersRegisterError> = serde_json::from_str(&local_var_content).ok();
@@ -162,13 +166,14 @@ pub async fn post_clsuters_register(configuration: &configuration::Configuration
 
 /// Update cluster
 pub async fn put_clusters_cluster_id(configuration: &configuration::Configuration, cluster_id: &str) -> Result<(), Error<PutClustersClusterIdError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/clusters/{cluster-id}", configuration.base_path, cluster-id=crate::apis::urlencode(cluster_id));
-    let mut local_var_req_builder = local_var_client.put(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/clusters/{cluster-id}", local_var_configuration.base_path, cluster-id=crate::apis::urlencode(cluster_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
@@ -178,7 +183,7 @@ pub async fn put_clusters_cluster_id(configuration: &configuration::Configuratio
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
         let local_var_entity: Option<PutClustersClusterIdError> = serde_json::from_str(&local_var_content).ok();

@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_deployments**](DeployApi.md#post_deployments) | **post** /batch | Create Batch of Functions
+[**post_deployments**](DeployApi.md#post_deployments) | **POST** /batch | Create Batch of Functions
 
 
 

@@ -11,14 +11,14 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct InlineObject {
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "address")]
     pub address: String,
     #[serde(rename = "location")]
-    pub location: crate::models::ClustersLocation,
+    pub location: Box<crate::models::ClustersLocation>,
     #[serde(rename = "provider")]
     pub provider: String,
 }
@@ -28,7 +28,7 @@ impl InlineObject {
         InlineObject {
             name,
             address,
-            location,
+            location: Box::new(location),
             provider,
         }
     }

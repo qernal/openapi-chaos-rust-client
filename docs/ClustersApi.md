@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_clusters_cluster_id**](ClustersApi.md#delete_clusters_cluster_id) | **delete** /clusters/{cluster-id} | Delete cluster
-[**get_clusters**](ClustersApi.md#get_clusters) | **get** /clusters | Get clusters
-[**get_clusters_cluster_id**](ClustersApi.md#get_clusters_cluster_id) | **get** /clusters/{cluster-id} | Get specific cluster
-[**post_clsuters_register**](ClustersApi.md#post_clsuters_register) | **post** /clusters | Register cluster
-[**put_clusters_cluster_id**](ClustersApi.md#put_clusters_cluster_id) | **put** /clusters/{cluster-id} | Update cluster
+[**delete_clusters_cluster_id**](ClustersApi.md#delete_clusters_cluster_id) | **DELETE** /clusters/{cluster-id} | Delete cluster
+[**get_clusters**](ClustersApi.md#get_clusters) | **GET** /clusters | Get clusters
+[**get_clusters_cluster_id**](ClustersApi.md#get_clusters_cluster_id) | **GET** /clusters/{cluster-id} | Get specific cluster
+[**post_clsuters_register**](ClustersApi.md#post_clsuters_register) | **POST** /clusters | Register cluster
+[**put_clusters_cluster_id**](ClustersApi.md#put_clusters_cluster_id) | **PUT** /clusters/{cluster-id} | Update cluster
 
 
 

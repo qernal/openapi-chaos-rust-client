@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_projects_project_id**](ProjectsApi.md#delete_projects_project_id) | **delete** /projects/{project-id} | Delete project
-[**get_projects**](ProjectsApi.md#get_projects) | **get** /projects | Get projects
-[**get_projects_project_id**](ProjectsApi.md#get_projects_project_id) | **get** /projects/{project-id} | Get project
-[**get_projects_project_id_functions**](ProjectsApi.md#get_projects_project_id_functions) | **get** /projects/{project-id}/functions | Get all project functions
-[**post_projects**](ProjectsApi.md#post_projects) | **post** /projects | Create project
+[**delete_projects_project_id**](ProjectsApi.md#delete_projects_project_id) | **DELETE** /projects/{project-id} | Delete project
+[**get_projects**](ProjectsApi.md#get_projects) | **GET** /projects | Get projects
+[**get_projects_project_id**](ProjectsApi.md#get_projects_project_id) | **GET** /projects/{project-id} | Get project
+[**get_projects_project_id_functions**](ProjectsApi.md#get_projects_project_id_functions) | **GET** /projects/{project-id}/functions | Get all project functions
+[**post_projects**](ProjectsApi.md#post_projects) | **POST** /projects | Create project
 
 
 

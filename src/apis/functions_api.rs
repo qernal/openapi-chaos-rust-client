@@ -15,35 +15,35 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method `delete_projects_project_id_functions_function_id`
+/// struct for typed errors of method [`delete_projects_project_id_functions_function_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteProjectsProjectIdFunctionsFunctionIdError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_projects_project_id_functions`
+/// struct for typed errors of method [`get_projects_project_id_functions`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetProjectsProjectIdFunctionsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `get_projects_project_id_functions_function_id`
+/// struct for typed errors of method [`get_projects_project_id_functions_function_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetProjectsProjectIdFunctionsFunctionIdError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `post_deployments`
+/// struct for typed errors of method [`post_deployments`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PostDeploymentsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method `put_projects_project_id_functions_function_id`
+/// struct for typed errors of method [`put_projects_project_id_functions_function_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PutProjectsProjectIdFunctionsFunctionIdError {
@@ -53,13 +53,14 @@ pub enum PutProjectsProjectIdFunctionsFunctionIdError {
 
 /// Delete specific function
 pub async fn delete_projects_project_id_functions_function_id(configuration: &configuration::Configuration, project_id: &str, function_id: &str) -> Result<(), Error<DeleteProjectsProjectIdFunctionsFunctionIdError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects/{project-id}/functions/{function-id}", configuration.base_path, project-id=crate::apis::urlencode(project_id), function-id=crate::apis::urlencode(function_id));
-    let mut local_var_req_builder = local_var_client.delete(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/projects/{project-id}/functions/{function-id}", local_var_configuration.base_path, project-id=crate::apis::urlencode(project_id), function-id=crate::apis::urlencode(function_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
@@ -69,7 +70,7 @@ pub async fn delete_projects_project_id_functions_function_id(configuration: &co
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
         let local_var_entity: Option<DeleteProjectsProjectIdFunctionsFunctionIdError> = serde_json::from_str(&local_var_content).ok();
@@ -80,13 +81,14 @@ pub async fn delete_projects_project_id_functions_function_id(configuration: &co
 
 /// Get the functions of a project
 pub async fn get_projects_project_id_functions(configuration: &configuration::Configuration, project_id: &str) -> Result<(), Error<GetProjectsProjectIdFunctionsError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects/{project-id}/functions", configuration.base_path, project-id=crate::apis::urlencode(project_id));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/projects/{project-id}/functions", local_var_configuration.base_path, project-id=crate::apis::urlencode(project_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
@@ -96,7 +98,7 @@ pub async fn get_projects_project_id_functions(configuration: &configuration::Co
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
         let local_var_entity: Option<GetProjectsProjectIdFunctionsError> = serde_json::from_str(&local_var_content).ok();
@@ -107,13 +109,14 @@ pub async fn get_projects_project_id_functions(configuration: &configuration::Co
 
 /// Get a specific function
 pub async fn get_projects_project_id_functions_function_id(configuration: &configuration::Configuration, project_id: &str, function_id: &str) -> Result<(), Error<GetProjectsProjectIdFunctionsFunctionIdError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects/{project-id}/functions/{function-id}", configuration.base_path, project-id=crate::apis::urlencode(project_id), function-id=crate::apis::urlencode(function_id));
-    let mut local_var_req_builder = local_var_client.get(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/projects/{project-id}/functions/{function-id}", local_var_configuration.base_path, project-id=crate::apis::urlencode(project_id), function-id=crate::apis::urlencode(function_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
@@ -123,7 +126,7 @@ pub async fn get_projects_project_id_functions_function_id(configuration: &confi
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
         let local_var_entity: Option<GetProjectsProjectIdFunctionsFunctionIdError> = serde_json::from_str(&local_var_content).ok();
@@ -134,13 +137,14 @@ pub async fn get_projects_project_id_functions_function_id(configuration: &confi
 
 /// Batch can contain more than one project with many functions in - it allows you to deploy an entire API in one go rather than individual functions
 pub async fn post_deployments(configuration: &configuration::Configuration, inline_object: Option<Vec<crate::models::InlineObject>>) -> Result<(), Error<PostDeploymentsError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/batch", configuration.base_path);
-    let mut local_var_req_builder = local_var_client.post(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/batch", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
     local_var_req_builder = local_var_req_builder.json(&inline_object);
@@ -151,7 +155,7 @@ pub async fn post_deployments(configuration: &configuration::Configuration, inli
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
         let local_var_entity: Option<PostDeploymentsError> = serde_json::from_str(&local_var_content).ok();
@@ -162,13 +166,14 @@ pub async fn post_deployments(configuration: &configuration::Configuration, inli
 
 /// Update a specific function
 pub async fn put_projects_project_id_functions_function_id(configuration: &configuration::Configuration, project_id: &str, function_id: &str) -> Result<(), Error<PutProjectsProjectIdFunctionsFunctionIdError>> {
+    let local_var_configuration = configuration;
 
-    let local_var_client = &configuration.client;
+    let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects/{project-id}/functions/{function-id}", configuration.base_path, project-id=crate::apis::urlencode(project_id), function-id=crate::apis::urlencode(function_id));
-    let mut local_var_req_builder = local_var_client.put(local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/projects/{project-id}/functions/{function-id}", local_var_configuration.base_path, project-id=crate::apis::urlencode(project_id), function-id=crate::apis::urlencode(function_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_user_agent) = configuration.user_agent {
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
 
@@ -178,7 +183,7 @@ pub async fn put_projects_project_id_functions_function_id(configuration: &confi
     let local_var_status = local_var_resp.status();
     let local_var_content = local_var_resp.text().await?;
 
-    if local_var_status.is_success() {
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
         let local_var_entity: Option<PutProjectsProjectIdFunctionsFunctionIdError> = serde_json::from_str(&local_var_content).ok();

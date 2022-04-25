@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_system_health**](SystemApi.md#get_system_health) | **get** /system/health | System Health
+[**get_system_health**](SystemApi.md#get_system_health) | **GET** /system/health | System Health
 
 
 
