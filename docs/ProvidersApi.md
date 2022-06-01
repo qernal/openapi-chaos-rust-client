@@ -1,19 +1,19 @@
-# \SystemApi
+# \ProvidersApi
 
 All URIs are relative to *https://chaos.qernal.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_system_health**](SystemApi.md#get_system_health) | **GET** /system/health | System Health
+[**get_providers**](ProvidersApi.md#get_providers) | **GET** /providers | Get available providers
 
 
 
-## get_system_health
+## get_providers
 
-> crate::models::InlineResponse200 get_system_health()
-System Health
+> Vec<serde_json::Value> get_providers()
+Get available providers
 
-Get health of Chaos
+Retrieve a list of all providers with their respective deployed regions and cities.
 
 ### Parameters
 
@@ -21,11 +21,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**crate::models::InlineResponse200**](inline_response_200.md)
+[**Vec<serde_json::Value>**](serde_json::Value.md)
 
 ### Authorization
 
-No authorization required
+[JWT](../README.md#JWT)
 
 ### HTTP request headers
 

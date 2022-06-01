@@ -15,45 +15,54 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`delete_projects_project_id`]
+/// struct for typed errors of method [`delete_organisations_org_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteProjectsProjectIdError {
+pub enum DeleteOrganisationsOrgIdError {
     Status404(serde_json::Value),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_projects`]
+/// struct for typed errors of method [`get_organisations`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetProjectsError {
+pub enum GetOrganisationsError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_projects_project_id`]
+/// struct for typed errors of method [`get_organisations_org_id`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetProjectsProjectIdError {
-    Status404(crate::models::GetIndividualProjectErrorResponseSchema),
+pub enum GetOrganisationsOrgIdError {
+    Status404(serde_json::Value),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`post_projects`]
+/// struct for typed errors of method [`post_organisations`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum PostProjectsError {
+pub enum PostOrganisationsError {
     Status400(serde_json::Value),
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`put_organisations_org_id`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PutOrganisationsOrgIdError {
+    Status400(serde_json::Value),
+    Status404(serde_json::Value),
+    UnknownValue(serde_json::Value),
+}
 
-/// Delete a project and all of its functions
-pub async fn delete_projects_project_id(configuration: &configuration::Configuration, project_id: &str) -> Result<serde_json::Value, Error<DeleteProjectsProjectIdError>> {
+
+/// Delete an organisation
+pub async fn delete_organisations_org_id(configuration: &configuration::Configuration, org_id: &str) -> Result<serde_json::Value, Error<DeleteOrganisationsOrgIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects/{project-id}", local_var_configuration.base_path, project-id=crate::apis::urlencode(project_id));
+    let local_var_uri_str = format!("{}/organisations/{org-id}", local_var_configuration.base_path, org-id=crate::apis::urlencode(org_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -72,19 +81,19 @@ pub async fn delete_projects_project_id(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteProjectsProjectIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteOrganisationsOrgIdError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-/// Get all the projects for that account
-pub async fn get_projects(configuration: &configuration::Configuration, ) -> Result<Vec<crate::models::InlineResponse2001>, Error<GetProjectsError>> {
+/// Get all organisations for the logged in user
+pub async fn get_organisations(configuration: &configuration::Configuration, ) -> Result<Vec<crate::models::InlineResponse2002>, Error<GetOrganisationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/organisations", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -103,19 +112,19 @@ pub async fn get_projects(configuration: &configuration::Configuration, ) -> Res
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetProjectsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetOrganisationsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-/// Get a specific project with all its functions
-pub async fn get_projects_project_id(configuration: &configuration::Configuration, project_id: &str) -> Result<serde_json::Value, Error<GetProjectsProjectIdError>> {
+/// Get an organisation
+pub async fn get_organisations_org_id(configuration: &configuration::Configuration, org_id: &str) -> Result<serde_json::Value, Error<GetOrganisationsOrgIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects/{project-id}", local_var_configuration.base_path, project-id=crate::apis::urlencode(project_id));
+    let local_var_uri_str = format!("{}/organisations/{org-id}", local_var_configuration.base_path, org-id=crate::apis::urlencode(org_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -134,19 +143,19 @@ pub async fn get_projects_project_id(configuration: &configuration::Configuratio
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetProjectsProjectIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetOrganisationsOrgIdError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-/// Create a new project
-pub async fn post_projects(configuration: &configuration::Configuration, create_project_request_body_schema: Option<crate::models::CreateProjectRequestBodySchema>) -> Result<serde_json::Value, Error<PostProjectsError>> {
+/// Create a new organisation
+pub async fn post_organisations(configuration: &configuration::Configuration, body: Option<serde_json::Value>) -> Result<serde_json::Value, Error<PostOrganisationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/organisations", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -155,7 +164,7 @@ pub async fn post_projects(configuration: &configuration::Configuration, create_
     if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
-    local_var_req_builder = local_var_req_builder.json(&create_project_request_body_schema);
+    local_var_req_builder = local_var_req_builder.json(&body);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -166,7 +175,39 @@ pub async fn post_projects(configuration: &configuration::Configuration, create_
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PostProjectsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PostOrganisationsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Update an organisation
+pub async fn put_organisations_org_id(configuration: &configuration::Configuration, org_id: &str, body: Option<serde_json::Value>) -> Result<serde_json::Value, Error<PutOrganisationsOrgIdError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/organisations/{org-id}", local_var_configuration.base_path, org-id=crate::apis::urlencode(org_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<PutOrganisationsOrgIdError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

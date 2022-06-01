@@ -1,31 +1,30 @@
-# \FunctionsApi
+# \OrganisationsApi
 
 All URIs are relative to *https://chaos.qernal.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_projects_project_id_functions_function_id**](FunctionsApi.md#delete_projects_project_id_functions_function_id) | **DELETE** /projects/{project-id}/functions/{function-id} | Delete function
-[**get_projects_project_id_functions**](FunctionsApi.md#get_projects_project_id_functions) | **GET** /projects/{project-id}/functions | Get all project functions
-[**get_projects_project_id_functions_function_id**](FunctionsApi.md#get_projects_project_id_functions_function_id) | **GET** /projects/{project-id}/functions/{function-id} | Get function
-[**post_projects_project_id_functions**](FunctionsApi.md#post_projects_project_id_functions) | **POST** /projects/{project-id}/functions | Create function
-[**put_projects_project_id_functions_function_id**](FunctionsApi.md#put_projects_project_id_functions_function_id) | **PUT** /projects/{project-id}/functions/{function-id} | Update function
+[**delete_organisations_org_id**](OrganisationsApi.md#delete_organisations_org_id) | **DELETE** /organisations/{org-id} | Delete organisation
+[**get_organisations**](OrganisationsApi.md#get_organisations) | **GET** /organisations | Get all organisations
+[**get_organisations_org_id**](OrganisationsApi.md#get_organisations_org_id) | **GET** /organisations/{org-id} | Get organisation
+[**post_organisations**](OrganisationsApi.md#post_organisations) | **POST** /organisations | Create organisation
+[**put_organisations_org_id**](OrganisationsApi.md#put_organisations_org_id) | **PUT** /organisations/{org-id} | Update organisation
 
 
 
-## delete_projects_project_id_functions_function_id
+## delete_organisations_org_id
 
-> serde_json::Value delete_projects_project_id_functions_function_id(project_id, function_id)
-Delete function
+> serde_json::Value delete_organisations_org_id(org_id)
+Delete organisation
 
-Delete specific function
+Delete an organisation
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**project_id** | **String** |  | [required] |
-**function_id** | **String** |  | [required] |
+**org_id** | **String** |  | [required] |
 
 ### Return type
 
@@ -43,23 +42,20 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## get_projects_project_id_functions
+## get_organisations
 
-> Vec<serde_json::Value> get_projects_project_id_functions(project_id)
-Get all project functions
+> Vec<crate::models::InlineResponse2002> get_organisations()
+Get all organisations
 
-Get the functions of a project
+Get all organisations for the logged in user
 
 ### Parameters
 
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**project_id** | **String** |  | [required] |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**Vec<serde_json::Value>**](serde_json::Value.md)
+[**Vec<crate::models::InlineResponse2002>**](inline_response_200_2.md)
 
 ### Authorization
 
@@ -73,20 +69,19 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## get_projects_project_id_functions_function_id
+## get_organisations_org_id
 
-> serde_json::Value get_projects_project_id_functions_function_id(project_id, function_id)
-Get function
+> serde_json::Value get_organisations_org_id(org_id)
+Get organisation
 
-Get a specific function
+Get an organisation
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**project_id** | **String** |  | [required] |
-**function_id** | **String** |  | [required] |
+**org_id** | **String** |  | [required] |
 
 ### Return type
 
@@ -104,20 +99,19 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## post_projects_project_id_functions
+## post_organisations
 
-> serde_json::Value post_projects_project_id_functions(project_id, create_project_functions_request_body_schema)
-Create function
+> serde_json::Value post_organisations(body)
+Create organisation
 
-Create a function on a project
+Create a new organisation
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**project_id** | **String** |  | [required] |
-**create_project_functions_request_body_schema** | Option<[**CreateProjectFunctionsRequestBodySchema**](CreateProjectFunctionsRequestBodySchema.md)> |  |  |
+**body** | Option<**serde_json::Value**> |  |  |
 
 ### Return type
 
@@ -135,20 +129,19 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## put_projects_project_id_functions_function_id
+## put_organisations_org_id
 
-> serde_json::Value put_projects_project_id_functions_function_id(project_id, function_id, body)
-Update function
+> serde_json::Value put_organisations_org_id(org_id, body)
+Update organisation
 
-Update a specific function
+Update an organisation
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**project_id** | **String** |  | [required] |
-**function_id** | **String** |  | [required] |
+**org_id** | **String** |  | [required] |
 **body** | Option<**serde_json::Value**> |  |  |
 
 ### Return type

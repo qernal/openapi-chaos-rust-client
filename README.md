@@ -1,6 +1,6 @@
 # Rust API client for openapi-chaos-client
 
-Management API (Central System)
+Management API - Central user exposed system
 
 
 ## Overview
@@ -21,38 +21,41 @@ openapi-chaos-client = { path = "./openapi-chaos-client" }
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:3000*
+All URIs are relative to *https://chaos.qernal.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ClustersApi* | [**delete_clusters_cluster_id**](docs/ClustersApi.md#delete_clusters_cluster_id) | **DELETE** /clusters/{cluster-id} | Delete cluster
-*ClustersApi* | [**get_clusters**](docs/ClustersApi.md#get_clusters) | **GET** /clusters | Get clusters
-*ClustersApi* | [**get_clusters_cluster_id**](docs/ClustersApi.md#get_clusters_cluster_id) | **GET** /clusters/{cluster-id} | Get specific cluster
-*ClustersApi* | [**post_clsuters_register**](docs/ClustersApi.md#post_clsuters_register) | **POST** /clusters | Register cluster
-*ClustersApi* | [**put_clusters_cluster_id**](docs/ClustersApi.md#put_clusters_cluster_id) | **PUT** /clusters/{cluster-id} | Update cluster
-*DeployApi* | [**post_deployments**](docs/DeployApi.md#post_deployments) | **POST** /batch | Create Batch of Functions
 *FunctionsApi* | [**delete_projects_project_id_functions_function_id**](docs/FunctionsApi.md#delete_projects_project_id_functions_function_id) | **DELETE** /projects/{project-id}/functions/{function-id} | Delete function
 *FunctionsApi* | [**get_projects_project_id_functions**](docs/FunctionsApi.md#get_projects_project_id_functions) | **GET** /projects/{project-id}/functions | Get all project functions
 *FunctionsApi* | [**get_projects_project_id_functions_function_id**](docs/FunctionsApi.md#get_projects_project_id_functions_function_id) | **GET** /projects/{project-id}/functions/{function-id} | Get function
-*FunctionsApi* | [**post_deployments**](docs/FunctionsApi.md#post_deployments) | **POST** /batch | Create Batch of Functions
+*FunctionsApi* | [**post_projects_project_id_functions**](docs/FunctionsApi.md#post_projects_project_id_functions) | **POST** /projects/{project-id}/functions | Create function
 *FunctionsApi* | [**put_projects_project_id_functions_function_id**](docs/FunctionsApi.md#put_projects_project_id_functions_function_id) | **PUT** /projects/{project-id}/functions/{function-id} | Update function
+*OrganisationsApi* | [**delete_organisations_org_id**](docs/OrganisationsApi.md#delete_organisations_org_id) | **DELETE** /organisations/{org-id} | Delete organisation
+*OrganisationsApi* | [**get_organisations**](docs/OrganisationsApi.md#get_organisations) | **GET** /organisations | Get all organisations
+*OrganisationsApi* | [**get_organisations_org_id**](docs/OrganisationsApi.md#get_organisations_org_id) | **GET** /organisations/{org-id} | Get organisation
+*OrganisationsApi* | [**post_organisations**](docs/OrganisationsApi.md#post_organisations) | **POST** /organisations | Create organisation
+*OrganisationsApi* | [**put_organisations_org_id**](docs/OrganisationsApi.md#put_organisations_org_id) | **PUT** /organisations/{org-id} | Update organisation
 *ProjectsApi* | [**delete_projects_project_id**](docs/ProjectsApi.md#delete_projects_project_id) | **DELETE** /projects/{project-id} | Delete project
 *ProjectsApi* | [**get_projects**](docs/ProjectsApi.md#get_projects) | **GET** /projects | Get projects
 *ProjectsApi* | [**get_projects_project_id**](docs/ProjectsApi.md#get_projects_project_id) | **GET** /projects/{project-id} | Get project
-*ProjectsApi* | [**get_projects_project_id_functions**](docs/ProjectsApi.md#get_projects_project_id_functions) | **GET** /projects/{project-id}/functions | Get all project functions
 *ProjectsApi* | [**post_projects**](docs/ProjectsApi.md#post_projects) | **POST** /projects | Create project
+*ProvidersApi* | [**get_providers**](docs/ProvidersApi.md#get_providers) | **GET** /providers | Get available providers
 *SystemApi* | [**get_system_health**](docs/SystemApi.md#get_system_health) | **GET** /system/health | System Health
 
 
 ## Documentation For Models
 
- - [BatchBuild](docs/BatchBuild.md)
- - [BatchFunctions](docs/BatchFunctions.md)
- - [BatchProject](docs/BatchProject.md)
- - [BatchRoute](docs/BatchRoute.md)
- - [ClustersLocation](docs/ClustersLocation.md)
- - [InlineObject](docs/InlineObject.md)
+ - [CreateProjectFunctionsRequestBodySchema](docs/CreateProjectFunctionsRequestBodySchema.md)
+ - [CreateProjectFunctionsRequestBodySchemaBuild](docs/CreateProjectFunctionsRequestBodySchemaBuild.md)
+ - [CreateProjectFunctionsRequestBodySchemaLocation](docs/CreateProjectFunctionsRequestBodySchemaLocation.md)
+ - [CreateProjectFunctionsRequestBodySchemaLocationAws](docs/CreateProjectFunctionsRequestBodySchemaLocationAws.md)
+ - [CreateProjectFunctionsRequestBodySchemaLocationAwsScaling](docs/CreateProjectFunctionsRequestBodySchemaLocationAwsScaling.md)
+ - [CreateProjectFunctionsRequestBodySchemaRoute](docs/CreateProjectFunctionsRequestBodySchemaRoute.md)
+ - [CreateProjectRequestBodySchema](docs/CreateProjectRequestBodySchema.md)
+ - [GetIndividualProjectErrorResponseSchema](docs/GetIndividualProjectErrorResponseSchema.md)
  - [InlineResponse200](docs/InlineResponse200.md)
+ - [InlineResponse2001](docs/InlineResponse2001.md)
+ - [InlineResponse2002](docs/InlineResponse2002.md)
 
 
 To get access to the crate's generated documentation, use:
@@ -63,5 +66,5 @@ cargo doc --open
 
 ## Author
 
-
+support@qernal.com
 
