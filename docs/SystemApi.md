@@ -4,13 +4,13 @@ All URIs are relative to *https://chaos.qernal.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_system_health**](SystemApi.md#get_system_health) | **GET** /system/health | System Health
+[**get_system_health**](SystemApi.md#get_system_health) | **Get** /system/health | System Health
 
 
 
 ## get_system_health
 
-> crate::models::InlineResponse200 get_system_health()
+> crate::models::GetSystemHealth200Response get_system_health()
 System Health
 
 Get health of Chaos
@@ -21,7 +21,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**crate::models::InlineResponse200**](inline_response_200.md)
+[**crate::models::GetSystemHealth200Response**](get_system_health_200_response.md)
 
 ### Authorization
 

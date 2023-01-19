@@ -4,11 +4,11 @@ All URIs are relative to *https://chaos.qernal.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_projects_project_id_functions_function_id**](FunctionsApi.md#delete_projects_project_id_functions_function_id) | **DELETE** /projects/{project-id}/functions/{function-id} | Delete function
-[**get_projects_project_id_functions**](FunctionsApi.md#get_projects_project_id_functions) | **GET** /projects/{project-id}/functions | Get all project functions
-[**get_projects_project_id_functions_function_id**](FunctionsApi.md#get_projects_project_id_functions_function_id) | **GET** /projects/{project-id}/functions/{function-id} | Get function
-[**post_projects_project_id_functions**](FunctionsApi.md#post_projects_project_id_functions) | **POST** /projects/{project-id}/functions | Create function
-[**put_projects_project_id_functions_function_id**](FunctionsApi.md#put_projects_project_id_functions_function_id) | **PUT** /projects/{project-id}/functions/{function-id} | Update function
+[**delete_projects_project_id_functions_function_id**](FunctionsApi.md#delete_projects_project_id_functions_function_id) | **Delete** /projects/{project-id}/functions/{function-id} | Delete function
+[**get_projects_project_id_functions**](FunctionsApi.md#get_projects_project_id_functions) | **Get** /projects/{project-id}/functions | Get all project functions
+[**get_projects_project_id_functions_function_id**](FunctionsApi.md#get_projects_project_id_functions_function_id) | **Get** /projects/{project-id}/functions/{function-id} | Get function
+[**post_projects_project_id_functions**](FunctionsApi.md#post_projects_project_id_functions) | **Post** /projects/{project-id}/functions | Create function
+[**put_projects_project_id_functions_function_id**](FunctionsApi.md#put_projects_project_id_functions_function_id) | **Put** /projects/{project-id}/functions/{function-id} | Update function
 
 
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_projects_project_id_functions
 
-> Vec<serde_json::Value> get_projects_project_id_functions(project_id)
+> Vec<crate::models::GetProjectFunctionsSuccessResponseSchemaInner> get_projects_project_id_functions(project_id)
 Get all project functions
 
 Get the functions of a project
@@ -59,7 +59,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**Vec<serde_json::Value>**](serde_json::Value.md)
+[**Vec<crate::models::GetProjectFunctionsSuccessResponseSchemaInner>**](GetProjectFunctionsSuccessResponseSchema_inner.md)
 
 ### Authorization
 

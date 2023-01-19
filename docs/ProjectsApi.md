@@ -4,10 +4,10 @@ All URIs are relative to *https://chaos.qernal.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_projects_project_id**](ProjectsApi.md#delete_projects_project_id) | **DELETE** /projects/{project-id} | Delete project
-[**get_projects**](ProjectsApi.md#get_projects) | **GET** /projects | Get projects
-[**get_projects_project_id**](ProjectsApi.md#get_projects_project_id) | **GET** /projects/{project-id} | Get project
-[**post_projects**](ProjectsApi.md#post_projects) | **POST** /projects | Create project
+[**delete_projects_project_id**](ProjectsApi.md#delete_projects_project_id) | **Delete** /projects/{project-id} | Delete project
+[**get_projects**](ProjectsApi.md#get_projects) | **Get** /projects | Get projects
+[**get_projects_project_id**](ProjectsApi.md#get_projects_project_id) | **Get** /projects/{project-id} | Get project
+[**post_projects**](ProjectsApi.md#post_projects) | **Post** /projects | Create project
 
 
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_projects
 
-> Vec<crate::models::InlineResponse2001> get_projects()
+> Vec<crate::models::GetProjects200ResponseInner> get_projects()
 Get projects
 
 Get all the projects for that account
@@ -54,7 +54,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Vec<crate::models::InlineResponse2001>**](inline_response_200_1.md)
+[**Vec<crate::models::GetProjects200ResponseInner>**](get_projects_200_response_inner.md)
 
 ### Authorization
 

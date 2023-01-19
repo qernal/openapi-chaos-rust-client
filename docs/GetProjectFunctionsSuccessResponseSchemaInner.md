@@ -1,9 +1,10 @@
-# CreateProjectFunctionsRequestBodySchema
+# GetProjectFunctionsSuccessResponseSchemaInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **String** |  | 
 **name** | **String** |  | 
 **description** | **String** |  | 
 **build** | [**crate::models::GetProjectFunctionsSuccessResponseSchemaInnerBuild**](GetProjectFunctionsSuccessResponseSchema_inner_build.md) |  | 

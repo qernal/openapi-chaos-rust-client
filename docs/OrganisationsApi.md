@@ -4,11 +4,11 @@ All URIs are relative to *https://chaos.qernal.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_organisations_org_id**](OrganisationsApi.md#delete_organisations_org_id) | **DELETE** /organisations/{org-id} | Delete organisation
-[**get_organisations**](OrganisationsApi.md#get_organisations) | **GET** /organisations | Get all organisations
-[**get_organisations_org_id**](OrganisationsApi.md#get_organisations_org_id) | **GET** /organisations/{org-id} | Get organisation
-[**post_organisations**](OrganisationsApi.md#post_organisations) | **POST** /organisations | Create organisation
-[**put_organisations_org_id**](OrganisationsApi.md#put_organisations_org_id) | **PUT** /organisations/{org-id} | Update organisation
+[**delete_organisations_org_id**](OrganisationsApi.md#delete_organisations_org_id) | **Delete** /organisations/{org-id} | Delete organisation
+[**get_organisations**](OrganisationsApi.md#get_organisations) | **Get** /organisations | Get all organisations
+[**get_organisations_org_id**](OrganisationsApi.md#get_organisations_org_id) | **Get** /organisations/{org-id} | Get organisation
+[**post_organisations**](OrganisationsApi.md#post_organisations) | **Post** /organisations | Create organisation
+[**put_organisations_org_id**](OrganisationsApi.md#put_organisations_org_id) | **Put** /organisations/{org-id} | Update organisation
 
 
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Required | Notes
 
 ## get_organisations
 
-> Vec<crate::models::InlineResponse2002> get_organisations()
+> Vec<crate::models::GetOrganisations200ResponseInner> get_organisations()
 Get all organisations
 
 Get all organisations for the logged in user
@@ -55,7 +55,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Vec<crate::models::InlineResponse2002>**](inline_response_200_2.md)
+[**Vec<crate::models::GetOrganisations200ResponseInner>**](get_organisations_200_response_inner.md)
 
 ### Authorization
 
