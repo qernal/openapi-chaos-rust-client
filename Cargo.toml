@@ -1,6 +1,6 @@
 [package]
 name = "openapi-chaos-client"
-version = "1.0"
+version = "1.0.0"
 authors = ["support@qernal.com"]
 description = "Management API - Central user exposed system"
 # Override this license by providing a License Object in the OpenAPI.
