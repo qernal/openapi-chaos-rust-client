@@ -25,22 +25,22 @@ All URIs are relative to *https://chaos.qernal.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*FunctionsApi* | [**delete_projects_project_id_functions_function_id**](docs/FunctionsApi.md#delete_projects_project_id_functions_function_id) | **Delete** /projects/{project-id}/functions/{function-id} | Delete function
-*FunctionsApi* | [**get_projects_project_id_functions**](docs/FunctionsApi.md#get_projects_project_id_functions) | **Get** /projects/{project-id}/functions | Get all project functions
-*FunctionsApi* | [**get_projects_project_id_functions_function_id**](docs/FunctionsApi.md#get_projects_project_id_functions_function_id) | **Get** /projects/{project-id}/functions/{function-id} | Get function
-*FunctionsApi* | [**post_projects_project_id_functions**](docs/FunctionsApi.md#post_projects_project_id_functions) | **Post** /projects/{project-id}/functions | Create function
-*FunctionsApi* | [**put_projects_project_id_functions_function_id**](docs/FunctionsApi.md#put_projects_project_id_functions_function_id) | **Put** /projects/{project-id}/functions/{function-id} | Update function
-*OrganisationsApi* | [**delete_organisations_org_id**](docs/OrganisationsApi.md#delete_organisations_org_id) | **Delete** /organisations/{org-id} | Delete organisation
-*OrganisationsApi* | [**get_organisations**](docs/OrganisationsApi.md#get_organisations) | **Get** /organisations | Get all organisations
-*OrganisationsApi* | [**get_organisations_org_id**](docs/OrganisationsApi.md#get_organisations_org_id) | **Get** /organisations/{org-id} | Get organisation
-*OrganisationsApi* | [**post_organisations**](docs/OrganisationsApi.md#post_organisations) | **Post** /organisations | Create organisation
-*OrganisationsApi* | [**put_organisations_org_id**](docs/OrganisationsApi.md#put_organisations_org_id) | **Put** /organisations/{org-id} | Update organisation
-*ProjectsApi* | [**delete_projects_project_id**](docs/ProjectsApi.md#delete_projects_project_id) | **Delete** /projects/{project-id} | Delete project
-*ProjectsApi* | [**get_projects**](docs/ProjectsApi.md#get_projects) | **Get** /projects | Get projects
-*ProjectsApi* | [**get_projects_project_id**](docs/ProjectsApi.md#get_projects_project_id) | **Get** /projects/{project-id} | Get project
-*ProjectsApi* | [**post_projects**](docs/ProjectsApi.md#post_projects) | **Post** /projects | Create project
-*ProvidersApi* | [**get_providers**](docs/ProvidersApi.md#get_providers) | **Get** /providers | Get available providers
-*SystemApi* | [**get_system_health**](docs/SystemApi.md#get_system_health) | **Get** /system/health | System Health
+*FunctionsApi* | [**delete_projects_project_id_functions_function_id**](docs/FunctionsApi.md#delete_projects_project_id_functions_function_id) | **DELETE** /projects/{project-id}/functions/{function-id} | Delete function
+*FunctionsApi* | [**get_projects_project_id_functions**](docs/FunctionsApi.md#get_projects_project_id_functions) | **GET** /projects/{project-id}/functions | Get all project functions
+*FunctionsApi* | [**get_projects_project_id_functions_function_id**](docs/FunctionsApi.md#get_projects_project_id_functions_function_id) | **GET** /projects/{project-id}/functions/{function-id} | Get function
+*FunctionsApi* | [**post_projects_project_id_functions**](docs/FunctionsApi.md#post_projects_project_id_functions) | **POST** /projects/{project-id}/functions | Create function
+*FunctionsApi* | [**put_projects_project_id_functions_function_id**](docs/FunctionsApi.md#put_projects_project_id_functions_function_id) | **PUT** /projects/{project-id}/functions/{function-id} | Update function
+*OrganisationsApi* | [**delete_organisations_org_id**](docs/OrganisationsApi.md#delete_organisations_org_id) | **DELETE** /organisations/{org-id} | Delete organisation
+*OrganisationsApi* | [**get_organisations**](docs/OrganisationsApi.md#get_organisations) | **GET** /organisations | Get all organisations
+*OrganisationsApi* | [**get_organisations_org_id**](docs/OrganisationsApi.md#get_organisations_org_id) | **GET** /organisations/{org-id} | Get organisation
+*OrganisationsApi* | [**post_organisations**](docs/OrganisationsApi.md#post_organisations) | **POST** /organisations | Create organisation
+*OrganisationsApi* | [**put_organisations_org_id**](docs/OrganisationsApi.md#put_organisations_org_id) | **PUT** /organisations/{org-id} | Update organisation
+*ProjectsApi* | [**delete_projects_project_id**](docs/ProjectsApi.md#delete_projects_project_id) | **DELETE** /projects/{project-id} | Delete project
+*ProjectsApi* | [**get_projects**](docs/ProjectsApi.md#get_projects) | **GET** /projects | Get projects
+*ProjectsApi* | [**get_projects_project_id**](docs/ProjectsApi.md#get_projects_project_id) | **GET** /projects/{project-id} | Get project
+*ProjectsApi* | [**post_projects**](docs/ProjectsApi.md#post_projects) | **POST** /projects | Create project
+*ProvidersApi* | [**get_providers**](docs/ProvidersApi.md#get_providers) | **GET** /providers | Get available providers
+*SystemApi* | [**get_system_health**](docs/SystemApi.md#get_system_health) | **GET** /system/health | System Health
 
 
 ## Documentation For Models

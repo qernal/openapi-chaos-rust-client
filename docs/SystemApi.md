@@ -4,7 +4,7 @@ All URIs are relative to *https://chaos.qernal.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_system_health**](SystemApi.md#get_system_health) | **Get** /system/health | System Health
+[**get_system_health**](SystemApi.md#get_system_health) | **GET** /system/health | System Health
 
 
 

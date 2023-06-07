@@ -4,7 +4,7 @@ All URIs are relative to *https://chaos.qernal.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_providers**](ProvidersApi.md#get_providers) | **Get** /providers | Get available providers
+[**get_providers**](ProvidersApi.md#get_providers) | **GET** /providers | Get available providers
 
 
 
