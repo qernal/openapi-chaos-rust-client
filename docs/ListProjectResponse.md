@@ -1,12 +1,11 @@
-# GetProjectFunctionsSuccessResponseSchemaInnerBuild
+# ListProjectResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**path** | **String** |  | 
-**dockerfile** | **String** |  | 
-**arch** | **Vec<String>** |  | 
+**meta** | [**crate::models::PaginationMeta**](PaginationMeta.md) |  | 
+**data** | [**Vec<crate::models::ProjectResponse>**](ProjectResponse.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

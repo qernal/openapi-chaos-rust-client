@@ -4,31 +4,31 @@ All URIs are relative to *https://chaos.qernal.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_organisations_org_id**](OrganisationsApi.md#delete_organisations_org_id) | **DELETE** /organisations/{org-id} | Delete organisation
-[**get_organisations**](OrganisationsApi.md#get_organisations) | **GET** /organisations | Get all organisations
-[**get_organisations_org_id**](OrganisationsApi.md#get_organisations_org_id) | **GET** /organisations/{org-id} | Get organisation
-[**post_organisations**](OrganisationsApi.md#post_organisations) | **POST** /organisations | Create organisation
-[**put_organisations_org_id**](OrganisationsApi.md#put_organisations_org_id) | **PUT** /organisations/{org-id} | Update organisation
+[**delete_organisations_org_id**](OrganisationsApi.md#delete_organisations_org_id) | **DELETE** /organisations/{organisation_id} | Delete an organisation
+[**get_organisations**](OrganisationsApi.md#get_organisations) | **GET** /organisations | List organisations
+[**get_organisations_org_id**](OrganisationsApi.md#get_organisations_org_id) | **GET** /organisations/{organisation_id} | Get an organisation
+[**post_organisations**](OrganisationsApi.md#post_organisations) | **POST** /organisations | Create organisations
+[**put_organisations_org_id**](OrganisationsApi.md#put_organisations_org_id) | **PUT** /organisations/{organisation_id} | Update an organisation
 
 
 
 ## delete_organisations_org_id
 
-> serde_json::Value delete_organisations_org_id(org_id)
-Delete organisation
-
+> crate::models::DeletedResponse delete_organisations_org_id(organisation_id)
 Delete an organisation
+
+Delete organisation, this will also delete all the resources within the organisation
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**org_id** | **String** |  | [required] |
+**organisation_id** | **uuid::Uuid** | Organisation ID reference | [required] |
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**crate::models::DeletedResponse**](DeletedResponse.md)
 
 ### Authorization
 
@@ -44,18 +44,21 @@ Name | Type | Description  | Required | Notes
 
 ## get_organisations
 
-> Vec<crate::models::GetOrganisations200ResponseInner> get_organisations()
-Get all organisations
+> crate::models::ListOrganisationResponse get_organisations(page)
+List organisations
 
-Get all organisations for the logged in user
+List organisations
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**page** | Option<[**GetOrganisationsPageParameter**](.md)> | Query parameters for pagination |  |
 
 ### Return type
 
-[**Vec<crate::models::GetOrganisations200ResponseInner>**](get_organisations_200_response_inner.md)
+[**crate::models::ListOrganisationResponse**](ListOrganisationResponse.md)
 
 ### Authorization
 
@@ -71,21 +74,21 @@ This endpoint does not need any parameter.
 
 ## get_organisations_org_id
 
-> serde_json::Value get_organisations_org_id(org_id)
-Get organisation
-
+> crate::models::OrganisationResponse get_organisations_org_id(organisation_id)
 Get an organisation
+
+Get a single organisation
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**org_id** | **String** |  | [required] |
+**organisation_id** | **uuid::Uuid** | Organisation ID reference | [required] |
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**crate::models::OrganisationResponse**](OrganisationResponse.md)
 
 ### Authorization
 
@@ -101,21 +104,21 @@ Name | Type | Description  | Required | Notes
 
 ## post_organisations
 
-> serde_json::Value post_organisations(body)
-Create organisation
+> crate::models::OrganisationResponse post_organisations(organisation_body)
+Create organisations
 
-Create a new organisation
+Create an organisation
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**body** | Option<**serde_json::Value**> |  |  |
+**organisation_body** | Option<[**OrganisationBody**](OrganisationBody.md)> | Create/Update any field |  |
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**crate::models::OrganisationResponse**](OrganisationResponse.md)
 
 ### Authorization
 
@@ -131,8 +134,8 @@ Name | Type | Description  | Required | Notes
 
 ## put_organisations_org_id
 
-> serde_json::Value put_organisations_org_id(org_id, body)
-Update organisation
+> crate::models::OrganisationResponse put_organisations_org_id(organisation_id, organisation_body)
+Update an organisation
 
 Update an organisation
 
@@ -141,12 +144,12 @@ Update an organisation
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**org_id** | **String** |  | [required] |
-**body** | Option<**serde_json::Value**> |  |  |
+**organisation_id** | **uuid::Uuid** | Organisation ID reference | [required] |
+**organisation_body** | Option<[**OrganisationBody**](OrganisationBody.md)> | Create/Update any field |  |
 
 ### Return type
 
-[**serde_json::Value**](serde_json::Value.md)
+[**crate::models::OrganisationResponse**](OrganisationResponse.md)
 
 ### Authorization
 

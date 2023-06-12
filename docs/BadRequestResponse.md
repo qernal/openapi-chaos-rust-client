@@ -1,11 +1,11 @@
-# GetProjectFunctionsSuccessResponseSchemaInnerRoute
+# BadRequestResponse
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**path** | **String** |  | 
-**methods** | **Vec<String>** |  | 
+**message** | **String** |  | 
+**fields** | [**crate::models::BadRequestResponseFields**](BadRequestResponse_fields.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

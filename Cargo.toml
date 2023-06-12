@@ -2,7 +2,7 @@
 name = "openapi-chaos-client"
 version = "1.0.0"
 authors = ["support@qernal.com"]
-description = "Management API - Central user exposed system"
+description = "Central Management API - publicly exposed set of APIs for managing deployments"
 # Override this license by providing a License Object in the OpenAPI.
 license = "Unlicense"
 edition = "2018"
