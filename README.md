@@ -21,7 +21,7 @@ openapi-chaos-client = { path = "./openapi-chaos-client" }
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://chaos.qernal.com*
+All URIs are relative to *https://chaos.qernal.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

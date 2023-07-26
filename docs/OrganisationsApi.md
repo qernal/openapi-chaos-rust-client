@@ -1,6 +1,6 @@
 # \OrganisationsApi
 
-All URIs are relative to *https://chaos.qernal.com*
+All URIs are relative to *https://chaos.qernal.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
