@@ -4,107 +4,17 @@ All URIs are relative to *https://chaos.qernal.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_organisations_org_id**](OrganisationsApi.md#delete_organisations_org_id) | **DELETE** /organisations/{organisation_id} | Delete an organisation
-[**get_organisations**](OrganisationsApi.md#get_organisations) | **GET** /organisations | List organisations
-[**get_organisations_org_id**](OrganisationsApi.md#get_organisations_org_id) | **GET** /organisations/{organisation_id} | Get an organisation
-[**post_organisations**](OrganisationsApi.md#post_organisations) | **POST** /organisations | Create organisations
-[**put_organisations_org_id**](OrganisationsApi.md#put_organisations_org_id) | **PUT** /organisations/{organisation_id} | Update an organisation
+[**organisations_create**](OrganisationsApi.md#organisations_create) | **POST** /organisations | Create organisations
+[**organisations_delete**](OrganisationsApi.md#organisations_delete) | **DELETE** /organisations/{organisation_id} | Delete an organisation
+[**organisations_get**](OrganisationsApi.md#organisations_get) | **GET** /organisations/{organisation_id} | Get an organisation
+[**organisations_list**](OrganisationsApi.md#organisations_list) | **GET** /organisations | List organisations
+[**organisations_update**](OrganisationsApi.md#organisations_update) | **PUT** /organisations/{organisation_id} | Update an organisation
 
 
 
-## delete_organisations_org_id
+## organisations_create
 
-> crate::models::DeletedResponse delete_organisations_org_id(organisation_id)
-Delete an organisation
-
-Delete organisation, this will also delete all the resources within the organisation
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**organisation_id** | **uuid::Uuid** | Organisation ID reference | [required] |
-
-### Return type
-
-[**crate::models::DeletedResponse**](DeletedResponse.md)
-
-### Authorization
-
-[cookie](../README.md#cookie), [token](../README.md#token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## get_organisations
-
-> crate::models::ListOrganisationResponse get_organisations(page)
-List organisations
-
-List organisations
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<[**GetOrganisationsPageParameter**](.md)> | Query parameters for pagination |  |
-
-### Return type
-
-[**crate::models::ListOrganisationResponse**](ListOrganisationResponse.md)
-
-### Authorization
-
-[cookie](../README.md#cookie), [token](../README.md#token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## get_organisations_org_id
-
-> crate::models::OrganisationResponse get_organisations_org_id(organisation_id)
-Get an organisation
-
-Get a single organisation
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**organisation_id** | **uuid::Uuid** | Organisation ID reference | [required] |
-
-### Return type
-
-[**crate::models::OrganisationResponse**](OrganisationResponse.md)
-
-### Authorization
-
-[cookie](../README.md#cookie), [token](../README.md#token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## post_organisations
-
-> crate::models::OrganisationResponse post_organisations(organisation_body)
+> crate::models::OrganisationResponse organisations_create(organisation_body)
 Create organisations
 
 Create an organisation
@@ -132,9 +42,99 @@ Name | Type | Description  | Required | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## put_organisations_org_id
+## organisations_delete
 
-> crate::models::OrganisationResponse put_organisations_org_id(organisation_id, organisation_body)
+> crate::models::DeletedResponse organisations_delete(organisation_id)
+Delete an organisation
+
+Delete organisation, this will also delete all the resources within the organisation
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**organisation_id** | **uuid::Uuid** | Organisation ID reference | [required] |
+
+### Return type
+
+[**crate::models::DeletedResponse**](DeletedResponse.md)
+
+### Authorization
+
+[cookie](../README.md#cookie), [token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## organisations_get
+
+> crate::models::OrganisationResponse organisations_get(organisation_id)
+Get an organisation
+
+Get a single organisation
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**organisation_id** | **uuid::Uuid** | Organisation ID reference | [required] |
+
+### Return type
+
+[**crate::models::OrganisationResponse**](OrganisationResponse.md)
+
+### Authorization
+
+[cookie](../README.md#cookie), [token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## organisations_list
+
+> crate::models::ListOrganisationResponse organisations_list(page)
+List organisations
+
+List organisations
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**page** | Option<[**OrganisationsListPageParameter**](.md)> | Query parameters for pagination |  |
+
+### Return type
+
+[**crate::models::ListOrganisationResponse**](ListOrganisationResponse.md)
+
+### Authorization
+
+[cookie](../README.md#cookie), [token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## organisations_update
+
+> crate::models::OrganisationResponse organisations_update(organisation_id, organisation_body)
 Update an organisation
 
 Update an organisation

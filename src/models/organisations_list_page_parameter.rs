@@ -12,7 +12,7 @@
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
-pub struct GetOrganisationsPageParameter {
+pub struct OrganisationsListPageParameter {
     /// Offset
     #[serde(rename = "before", skip_serializing_if = "Option::is_none")]
     pub before: Option<i32>,
@@ -24,9 +24,9 @@ pub struct GetOrganisationsPageParameter {
     pub size: Option<i32>,
 }
 
-impl GetOrganisationsPageParameter {
-    pub fn new() -> GetOrganisationsPageParameter {
-        GetOrganisationsPageParameter {
+impl OrganisationsListPageParameter {
+    pub fn new() -> OrganisationsListPageParameter {
+        OrganisationsListPageParameter {
             before: None,
             after: None,
             size: None,

@@ -16,10 +16,10 @@
 pub struct OrganisationResponse {
     /// Organisation id
     #[serde(rename = "id")]
-    pub id: String,
+    pub id: uuid::Uuid,
     /// User id
     #[serde(rename = "user_id")]
-    pub user_id: String,
+    pub user_id: uuid::Uuid,
     /// Organisation name
     #[serde(rename = "name")]
     pub name: String,
@@ -27,7 +27,7 @@ pub struct OrganisationResponse {
 
 impl OrganisationResponse {
     /// Organisation response
-    pub fn new(id: String, user_id: String, name: String) -> OrganisationResponse {
+    pub fn new(id: uuid::Uuid, user_id: uuid::Uuid, name: String) -> OrganisationResponse {
         OrganisationResponse {
             id,
             user_id,

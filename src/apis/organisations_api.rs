@@ -15,178 +15,54 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`delete_organisations_org_id`]
+/// struct for typed errors of method [`organisations_create`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteOrganisationsOrgIdError {
-    Status404(crate::models::NotFoundResponse),
-    Status403(crate::models::UnauthorisedResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_organisations`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetOrganisationsError {
-    Status403(crate::models::UnauthorisedResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_organisations_org_id`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetOrganisationsOrgIdError {
-    Status404(crate::models::NotFoundResponse),
-    Status403(crate::models::UnauthorisedResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`post_organisations`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum PostOrganisationsError {
+pub enum OrganisationsCreateError {
     Status400(crate::models::BadRequestResponse),
     Status403(crate::models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`put_organisations_org_id`]
+/// struct for typed errors of method [`organisations_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum PutOrganisationsOrgIdError {
+pub enum OrganisationsDeleteError {
+    Status404(crate::models::NotFoundResponse),
+    Status403(crate::models::UnauthorisedResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`organisations_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum OrganisationsGetError {
+    Status404(crate::models::NotFoundResponse),
+    Status403(crate::models::UnauthorisedResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`organisations_list`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum OrganisationsListError {
+    Status403(crate::models::UnauthorisedResponse),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`organisations_update`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum OrganisationsUpdateError {
     Status404(crate::models::NotFoundResponse),
     Status400(crate::models::BadRequestResponse),
     Status403(crate::models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
-
-/// Delete organisation, this will also delete all the resources within the organisation
-pub async fn delete_organisations_org_id(configuration: &configuration::Configuration, organisation_id: &str) -> Result<crate::models::DeletedResponse, Error<DeleteOrganisationsOrgIdError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/organisations/{organisation_id}", local_var_configuration.base_path, organisation_id=crate::apis::urlencode(organisation_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
-        };
-        local_var_req_builder = local_var_req_builder.header("QERNAL-AUTH-TOKEN", local_var_value);
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    // FIXME: Remove after template fix
-    dbg!(&local_var_req);
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<DeleteOrganisationsOrgIdError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// List organisations
-pub async fn get_organisations(configuration: &configuration::Configuration, page: Option<crate::models::GetOrganisationsPageParameter>) -> Result<crate::models::ListOrganisationResponse, Error<GetOrganisationsError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/organisations", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = page {
-        #[derive(Serialize)]
-        struct LocalStructDeepGetOrganisationsPageParameter<'a> {
-            r#page: &'a crate::models::GetOrganisationsPageParameter,
-        }
-        let local_deep_struct = LocalStructDeepGetOrganisationsPageParameter{ r#page: local_var_str };
-        // let params = crate::apis::parse_deep_object("page", local_var_str);
-        let params = crate::query_to_pairs(&local_deep_struct);
-        local_var_req_builder = local_var_req_builder.query(&params);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
-        };
-        local_var_req_builder = local_var_req_builder.header("QERNAL-AUTH-TOKEN", local_var_value);
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    // FIXME: Remove after template fix
-    dbg!(&local_var_req);
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetOrganisationsError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Get a single organisation
-pub async fn get_organisations_org_id(configuration: &configuration::Configuration, organisation_id: &str) -> Result<crate::models::OrganisationResponse, Error<GetOrganisationsOrgIdError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/organisations/{organisation_id}", local_var_configuration.base_path, organisation_id=crate::apis::urlencode(organisation_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
-        };
-        local_var_req_builder = local_var_req_builder.header("QERNAL-AUTH-TOKEN", local_var_value);
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    // FIXME: Remove after template fix
-    dbg!(&local_var_req);
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetOrganisationsOrgIdError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
 
 /// Create an organisation
-pub async fn post_organisations(configuration: &configuration::Configuration, organisation_body: Option<crate::models::OrganisationBody>) -> Result<crate::models::OrganisationResponse, Error<PostOrganisationsError>> {
+pub async fn organisations_create(configuration: &configuration::Configuration, organisation_body: Option<crate::models::OrganisationBody>) -> Result<crate::models::OrganisationResponse, Error<OrganisationsCreateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -218,14 +94,138 @@ pub async fn post_organisations(configuration: &configuration::Configuration, or
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PostOrganisationsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<OrganisationsCreateError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Delete organisation, this will also delete all the resources within the organisation
+pub async fn organisations_delete(configuration: &configuration::Configuration, organisation_id: &str) -> Result<crate::models::DeletedResponse, Error<OrganisationsDeleteError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/organisations/{organisation_id}", local_var_configuration.base_path, organisation_id=crate::apis::urlencode(organisation_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("QERNAL-AUTH-TOKEN", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    // FIXME: Remove after template fix
+    dbg!(&local_var_req);
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<OrganisationsDeleteError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Get a single organisation
+pub async fn organisations_get(configuration: &configuration::Configuration, organisation_id: &str) -> Result<crate::models::OrganisationResponse, Error<OrganisationsGetError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/organisations/{organisation_id}", local_var_configuration.base_path, organisation_id=crate::apis::urlencode(organisation_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("QERNAL-AUTH-TOKEN", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    // FIXME: Remove after template fix
+    dbg!(&local_var_req);
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<OrganisationsGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// List organisations
+pub async fn organisations_list(configuration: &configuration::Configuration, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<crate::models::ListOrganisationResponse, Error<OrganisationsListError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/organisations", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = page {
+        #[derive(Serialize)]
+        struct LocalStructDeepOrganisationsListPageParameter<'a> {
+            r#page: &'a crate::models::OrganisationsListPageParameter,
+        }
+        let local_deep_struct = LocalStructDeepOrganisationsListPageParameter{ r#page: local_var_str };
+        // let params = crate::apis::parse_deep_object("page", local_var_str);
+        let params = crate::query_to_pairs(&local_deep_struct);
+        local_var_req_builder = local_var_req_builder.query(&params);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
+        let local_var_key = local_var_apikey.key.clone();
+        let local_var_value = match local_var_apikey.prefix {
+            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
+            None => local_var_key,
+        };
+        local_var_req_builder = local_var_req_builder.header("QERNAL-AUTH-TOKEN", local_var_value);
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    // FIXME: Remove after template fix
+    dbg!(&local_var_req);
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<OrganisationsListError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
 /// Update an organisation
-pub async fn put_organisations_org_id(configuration: &configuration::Configuration, organisation_id: &str, organisation_body: Option<crate::models::OrganisationBody>) -> Result<crate::models::OrganisationResponse, Error<PutOrganisationsOrgIdError>> {
+pub async fn organisations_update(configuration: &configuration::Configuration, organisation_id: &str, organisation_body: Option<crate::models::OrganisationBody>) -> Result<crate::models::OrganisationResponse, Error<OrganisationsUpdateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -257,7 +257,7 @@ pub async fn put_organisations_org_id(configuration: &configuration::Configurati
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<PutOrganisationsOrgIdError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<OrganisationsUpdateError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

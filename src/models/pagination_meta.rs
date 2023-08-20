@@ -15,20 +15,20 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct PaginationMeta {
     #[serde(rename = "results")]
-    pub results: f32,
+    pub results: i32,
     #[serde(rename = "start")]
-    pub start: f32,
+    pub start: i32,
     #[serde(rename = "end")]
-    pub end: f32,
+    pub end: i32,
     #[serde(rename = "pages")]
-    pub pages: f32,
+    pub pages: i32,
     #[serde(rename = "links")]
     pub links: Box<crate::models::PaginationLinks>,
 }
 
 impl PaginationMeta {
     /// Meta object for pagination use
-    pub fn new(results: f32, start: f32, end: f32, pages: f32, links: crate::models::PaginationLinks) -> PaginationMeta {
+    pub fn new(results: i32, start: i32, end: i32, pages: i32, links: crate::models::PaginationLinks) -> PaginationMeta {
         PaginationMeta {
             results,
             start,
