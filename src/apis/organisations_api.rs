@@ -85,7 +85,7 @@ pub async fn organisations_create(configuration: &configuration::Configuration, 
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
-    dbg!(&local_var_req);
+    // dbg!(&local_var_req);
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
@@ -123,7 +123,7 @@ pub async fn organisations_delete(configuration: &configuration::Configuration, 
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
-    dbg!(&local_var_req);
+    // dbg!(&local_var_req);
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
@@ -161,7 +161,7 @@ pub async fn organisations_get(configuration: &configuration::Configuration, org
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
-    dbg!(&local_var_req);
+    // dbg!(&local_var_req);
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
@@ -209,7 +209,7 @@ pub async fn organisations_list(configuration: &configuration::Configuration, pa
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
-    dbg!(&local_var_req);
+    // dbg!(&local_var_req);
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
@@ -248,7 +248,7 @@ pub async fn organisations_update(configuration: &configuration::Configuration, 
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
-    dbg!(&local_var_req);
+    // dbg!(&local_var_req);
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();

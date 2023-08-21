@@ -104,7 +104,7 @@ pub async fn organisations_projects_list(configuration: &configuration::Configur
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
-    dbg!(&local_var_req);
+    // dbg!(&local_var_req);
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
@@ -143,7 +143,7 @@ pub async fn projects_create(configuration: &configuration::Configuration, proje
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
-    dbg!(&local_var_req);
+    // dbg!(&local_var_req);
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
@@ -181,7 +181,7 @@ pub async fn projects_delete(configuration: &configuration::Configuration, proje
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
-    dbg!(&local_var_req);
+    // dbg!(&local_var_req);
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
@@ -219,7 +219,7 @@ pub async fn projects_get(configuration: &configuration::Configuration, project_
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
-    dbg!(&local_var_req);
+    // dbg!(&local_var_req);
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
@@ -267,7 +267,7 @@ pub async fn projects_list(configuration: &configuration::Configuration, page: O
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
-    dbg!(&local_var_req);
+    // dbg!(&local_var_req);
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
@@ -306,7 +306,7 @@ pub async fn projects_update(configuration: &configuration::Configuration, proje
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
-    dbg!(&local_var_req);
+    // dbg!(&local_var_req);
     let local_var_resp = local_var_client.execute(local_var_req).await?;
 
     let local_var_status = local_var_resp.status();
