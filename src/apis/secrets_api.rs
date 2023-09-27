@@ -15,19 +15,10 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`organisations_projects_list`]
+/// struct for typed errors of method [`projects_secrets_create`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OrganisationsProjectsListError {
-    Status404(crate::models::NotFoundResponse),
-    Status403(crate::models::UnauthorisedResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`projects_create`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum ProjectsCreateError {
+pub enum ProjectsSecretsCreateError {
     Status404(crate::models::NotFoundResponse),
     Status400(crate::models::BadRequestResponse),
     Status403(crate::models::UnauthorisedResponse),
@@ -35,36 +26,37 @@ pub enum ProjectsCreateError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`projects_delete`]
+/// struct for typed errors of method [`projects_secrets_delete`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ProjectsDeleteError {
+pub enum ProjectsSecretsDeleteError {
     Status404(crate::models::NotFoundResponse),
     Status403(crate::models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`projects_get`]
+/// struct for typed errors of method [`projects_secrets_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ProjectsGetError {
+pub enum ProjectsSecretsGetError {
     Status404(crate::models::NotFoundResponse),
     Status403(crate::models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`projects_list`]
+/// struct for typed errors of method [`projects_secrets_list`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ProjectsListError {
+pub enum ProjectsSecretsListError {
+    Status404(crate::models::NotFoundResponse),
     Status403(crate::models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`projects_update`]
+/// struct for typed errors of method [`projects_secrets_update`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ProjectsUpdateError {
+pub enum ProjectsSecretsUpdateError {
     Status404(crate::models::NotFoundResponse),
     Status400(crate::models::BadRequestResponse),
     Status403(crate::models::UnauthorisedResponse),
@@ -72,61 +64,13 @@ pub enum ProjectsUpdateError {
 }
 
 
-/// Get all the projects linked to a specific organisation
-pub async fn organisations_projects_list(configuration: &configuration::Configuration, organisation_id: &str, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<crate::models::ListProjectResponse, Error<OrganisationsProjectsListError>> {
+/// Create a new project secret
+pub async fn projects_secrets_create(configuration: &configuration::Configuration, project_id: &str, secret_body: crate::models::SecretBody) -> Result<crate::models::SecretResponse, Error<ProjectsSecretsCreateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/organisations/{organisation_id}/projects", local_var_configuration.base_path, organisation_id=crate::apis::urlencode(organisation_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = page {
-        #[derive(Serialize)]
-        struct LocalStructDeepOrganisationsListPageParameter<'a> {
-            r#page: &'a crate::models::OrganisationsListPageParameter,
-        }
-        let local_deep_struct = LocalStructDeepOrganisationsListPageParameter{ r#page: local_var_str };
-        // let params = crate::apis::parse_deep_object("page", local_var_str);
-        let params = crate::query_to_pairs(&local_deep_struct);
-        local_var_req_builder = local_var_req_builder.query(&params);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_apikey) = local_var_configuration.api_key {
-        let local_var_key = local_var_apikey.key.clone();
-        let local_var_value = match local_var_apikey.prefix {
-            Some(ref local_var_prefix) => format!("{} {}", local_var_prefix, local_var_key),
-            None => local_var_key,
-        };
-        local_var_req_builder = local_var_req_builder.header("QERNAL-AUTH-TOKEN", local_var_value);
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    // FIXME: Remove after template fix
-    // dbg!(&local_var_req);
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<OrganisationsProjectsListError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Create a new project
-pub async fn projects_create(configuration: &configuration::Configuration, project_body: Option<crate::models::ProjectBody>) -> Result<crate::models::ProjectResponse, Error<ProjectsCreateError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/projects", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/projects/{project_id}/secrets", local_var_configuration.base_path, project_id=crate::apis::urlencode(project_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -140,7 +84,7 @@ pub async fn projects_create(configuration: &configuration::Configuration, proje
         };
         local_var_req_builder = local_var_req_builder.header("QERNAL-AUTH-TOKEN", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&project_body);
+    local_var_req_builder = local_var_req_builder.json(&secret_body);
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
@@ -153,19 +97,19 @@ pub async fn projects_create(configuration: &configuration::Configuration, proje
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ProjectsCreateError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ProjectsSecretsCreateError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-/// Delete project, this will also delete all the resources within the project
-pub async fn projects_delete(configuration: &configuration::Configuration, project_id: &str) -> Result<crate::models::DeletedResponse, Error<ProjectsDeleteError>> {
+/// Delete project secret, if the secret is still linked to an active/deployed function - it cannot be removed
+pub async fn projects_secrets_delete(configuration: &configuration::Configuration, project_id: &str, secret_name: &str) -> Result<crate::models::DeletedResponse, Error<ProjectsSecretsDeleteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects/{project_id}", local_var_configuration.base_path, project_id=crate::apis::urlencode(project_id));
+    let local_var_uri_str = format!("{}/projects/{project_id}/secrets/{secret_name}", local_var_configuration.base_path, project_id=crate::apis::urlencode(project_id), secret_name=crate::apis::urlencode(secret_name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -191,19 +135,19 @@ pub async fn projects_delete(configuration: &configuration::Configuration, proje
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ProjectsDeleteError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ProjectsSecretsDeleteError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
 /// Get a specific project
-pub async fn projects_get(configuration: &configuration::Configuration, project_id: &str) -> Result<crate::models::ProjectResponse, Error<ProjectsGetError>> {
+pub async fn projects_secrets_get(configuration: &configuration::Configuration, project_id: &str, secret_name: &str) -> Result<crate::models::SecretMetaResponse, Error<ProjectsSecretsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects/{project_id}", local_var_configuration.base_path, project_id=crate::apis::urlencode(project_id));
+    let local_var_uri_str = format!("{}/projects/{project_id}/secrets/{secret_name}", local_var_configuration.base_path, project_id=crate::apis::urlencode(project_id), secret_name=crate::apis::urlencode(secret_name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -229,19 +173,19 @@ pub async fn projects_get(configuration: &configuration::Configuration, project_
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ProjectsGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ProjectsSecretsGetError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
-/// Get all projects for this user, paginated
-pub async fn projects_list(configuration: &configuration::Configuration, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<crate::models::ListProjectResponse, Error<ProjectsListError>> {
+/// List project secrets of a specific type
+pub async fn projects_secrets_list(configuration: &configuration::Configuration, project_id: &str, page: Option<crate::models::OrganisationsListPageParameter>, secret_type: Option<crate::models::SecretMetaType>) -> Result<crate::models::ListSecretResponse, Error<ProjectsSecretsListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/projects/{project_id}/secrets", local_var_configuration.base_path, project_id=crate::apis::urlencode(project_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = page {
@@ -254,6 +198,9 @@ pub async fn projects_list(configuration: &configuration::Configuration, page: O
         let params = crate::query_to_pairs(&local_deep_struct);
         local_var_req_builder = local_var_req_builder.query(&params);
     }
+    if let Some(ref local_var_str) = secret_type {
+        local_var_req_builder = local_var_req_builder.query(&[("secret_type", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
@@ -277,19 +224,19 @@ pub async fn projects_list(configuration: &configuration::Configuration, page: O
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ProjectsListError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ProjectsSecretsListError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
 /// Update project
-pub async fn projects_update(configuration: &configuration::Configuration, project_id: &str, project_body_patch: Option<crate::models::ProjectBodyPatch>) -> Result<crate::models::ProjectResponse, Error<ProjectsUpdateError>> {
+pub async fn projects_secrets_update(configuration: &configuration::Configuration, project_id: &str, secret_name: &str, secret_body_patch: crate::models::SecretBodyPatch) -> Result<crate::models::SecretResponse, Error<ProjectsSecretsUpdateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/projects/{project_id}", local_var_configuration.base_path, project_id=crate::apis::urlencode(project_id));
+    let local_var_uri_str = format!("{}/projects/{project_id}/secrets/{secret_name}", local_var_configuration.base_path, project_id=crate::apis::urlencode(project_id), secret_name=crate::apis::urlencode(secret_name));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -303,7 +250,7 @@ pub async fn projects_update(configuration: &configuration::Configuration, proje
         };
         local_var_req_builder = local_var_req_builder.header("QERNAL-AUTH-TOKEN", local_var_value);
     };
-    local_var_req_builder = local_var_req_builder.json(&project_body_patch);
+    local_var_req_builder = local_var_req_builder.json(&secret_body_patch);
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
@@ -316,7 +263,7 @@ pub async fn projects_update(configuration: &configuration::Configuration, proje
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<ProjectsUpdateError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ProjectsSecretsUpdateError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

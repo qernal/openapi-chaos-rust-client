@@ -21,6 +21,7 @@ use super::{Error, configuration};
 pub enum OrganisationsCreateError {
     Status400(crate::models::BadRequestResponse),
     Status403(crate::models::UnauthorisedResponse),
+    Status409(crate::models::ConflictResponse),
     UnknownValue(serde_json::Value),
 }
 
