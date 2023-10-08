@@ -25,12 +25,12 @@ pub struct SecretMetaResponse {
     #[serde(rename = "revision")]
     pub revision: i32,
     #[serde(rename = "date")]
-    pub date: Box<crate::models::SecretResponseDate>,
+    pub date: Box<crate::models::Date>,
 }
 
 impl SecretMetaResponse {
     /// Secret metadata response
-    pub fn new(name: String, r#type: crate::models::SecretMetaType, revision: i32, date: crate::models::SecretResponseDate) -> SecretMetaResponse {
+    pub fn new(name: String, r#type: crate::models::SecretMetaType, revision: i32, date: crate::models::Date) -> SecretMetaResponse {
         SecretMetaResponse {
             name,
             r#type,
