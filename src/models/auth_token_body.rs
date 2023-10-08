@@ -14,7 +14,7 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AuthTokenBody {
-    /// Token name
+    /// Name of token
     #[serde(rename = "name")]
     pub name: String,
     /// Token expiration duration in days. 0 - token will never expire

@@ -19,6 +19,7 @@ pub struct AuthTokenMeta {
     /// User
     #[serde(rename = "user_id")]
     pub user_id: uuid::Uuid,
+    /// Name of token
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "expiry_at", skip_serializing_if = "Option::is_none")]

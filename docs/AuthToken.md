@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**uuid::Uuid**](uuid::Uuid.md) |  | 
+**id** | [**uuid::Uuid**](uuid::Uuid.md) | Auth token uuid | 
 **user_id** | [**uuid::Uuid**](uuid::Uuid.md) | User | 
-**name** | **String** | Token name | 
+**name** | **String** | Name of token | 
 **expiry_at** | Option<**String**> |  | [optional]
-**token** | Option<**String**> | OAuth2 client id and client secret used to generate API access token. Client secret can't be created and must be saved on user side | [optional]
+**token** | Option<**String**> | Combined token required for requesting an access token, this field is only returned once on creation or update (during regeneration). | [optional]
 **date** | [**crate::models::Date**](Date.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

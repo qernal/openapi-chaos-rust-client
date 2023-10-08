@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | [**uuid::Uuid**](uuid::Uuid.md) |  | 
 **user_id** | [**uuid::Uuid**](uuid::Uuid.md) | User | 
-**name** | **String** |  | 
+**name** | **String** | Name of token | 
 **expiry_at** | Option<**String**> |  | [optional]
 **date** | [**crate::models::Date**](Date.md) |  | 
 

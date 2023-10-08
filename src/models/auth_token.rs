@@ -14,17 +14,18 @@
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct AuthToken {
+    /// Auth token uuid
     #[serde(rename = "id")]
     pub id: uuid::Uuid,
     /// User
     #[serde(rename = "user_id")]
     pub user_id: uuid::Uuid,
-    /// Token name
+    /// Name of token
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "expiry_at", skip_serializing_if = "Option::is_none")]
     pub expiry_at: Option<String>,
-    /// OAuth2 client id and client secret used to generate API access token. Client secret can't be created and must be saved on user side
+    /// Combined token required for requesting an access token, this field is only returned once on creation or update (during regeneration).
     #[serde(rename = "token", skip_serializing_if = "Option::is_none")]
     pub token: Option<String>,
     #[serde(rename = "date")]
