@@ -23,15 +23,18 @@ pub struct ProjectResponse {
     /// Project name
     #[serde(rename = "name")]
     pub name: String,
+    #[serde(rename = "date")]
+    pub date: Box<crate::models::Date>,
 }
 
 impl ProjectResponse {
     /// Project response
-    pub fn new(id: uuid::Uuid, org_id: uuid::Uuid, name: String) -> ProjectResponse {
+    pub fn new(id: uuid::Uuid, org_id: uuid::Uuid, name: String, date: crate::models::Date) -> ProjectResponse {
         ProjectResponse {
             id,
             org_id,
             name,
+            date: Box::new(date),
         }
     }
 }
