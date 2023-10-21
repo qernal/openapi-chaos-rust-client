@@ -12,7 +12,12 @@ docs/BadRequestResponseFields.md
 docs/ConflictResponse.md
 docs/Date.md
 docs/DeletedResponse.md
+docs/Host.md
+docs/HostBody.md
+docs/HostBodyPatch.md
+docs/HostsApi.md
 docs/ListAuthTokens.md
+docs/ListHosts.md
 docs/ListOrganisationResponse.md
 docs/ListProjectResponse.md
 docs/ListSecretResponse.md
@@ -47,6 +52,7 @@ docs/TokensApi.md
 docs/UnauthorisedResponse.md
 git_push.sh
 src/apis/configuration.rs
+src/apis/hosts_api.rs
 src/apis/mod.rs
 src/apis/organisations_api.rs
 src/apis/projects_api.rs
@@ -62,7 +68,11 @@ src/models/bad_request_response_fields.rs
 src/models/conflict_response.rs
 src/models/date.rs
 src/models/deleted_response.rs
+src/models/host.rs
+src/models/host_body.rs
+src/models/host_body_patch.rs
 src/models/list_auth_tokens.rs
+src/models/list_hosts.rs
 src/models/list_organisation_response.rs
 src/models/list_project_response.rs
 src/models/list_secret_response.rs
