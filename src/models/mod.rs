@@ -22,6 +22,8 @@ pub mod host_body;
 pub use self::host_body::HostBody;
 pub mod host_body_patch;
 pub use self::host_body_patch::HostBodyPatch;
+pub mod host_verification_status;
+pub use self::host_verification_status::HostVerificationStatus;
 pub mod list_auth_tokens;
 pub use self::list_auth_tokens::ListAuthTokens;
 pub mod list_hosts;

@@ -67,6 +67,7 @@ Class | Method | HTTP request | Description
  - [Host](docs/Host.md)
  - [HostBody](docs/HostBody.md)
  - [HostBodyPatch](docs/HostBodyPatch.md)
+ - [HostVerificationStatus](docs/HostVerificationStatus.md)
  - [ListAuthTokens](docs/ListAuthTokens.md)
  - [ListHosts](docs/ListHosts.md)
  - [ListOrganisationResponse](docs/ListOrganisationResponse.md)

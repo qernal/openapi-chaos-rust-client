@@ -40,11 +40,13 @@ pub struct Host {
     pub verified_at: Option<String>,
     #[serde(rename = "date")]
     pub date: Box<crate::models::Date>,
+    #[serde(rename = "verification_status")]
+    pub verification_status: crate::models::HostVerificationStatus,
 }
 
 impl Host {
     /// Host response
-    pub fn new(id: uuid::Uuid, host: String, project_id: uuid::Uuid, read_only: bool, disabled: bool, txt_verification: String, date: crate::models::Date) -> Host {
+    pub fn new(id: uuid::Uuid, host: String, project_id: uuid::Uuid, read_only: bool, disabled: bool, txt_verification: String, date: crate::models::Date, verification_status: crate::models::HostVerificationStatus) -> Host {
         Host {
             id,
             host,
@@ -55,6 +57,7 @@ impl Host {
             txt_verification,
             verified_at: None,
             date: Box::new(date),
+            verification_status,
         }
     }
 }
