@@ -30,6 +30,7 @@ Class | Method | HTTP request | Description
 *HostsApi* | [**projects_hosts_get**](docs/HostsApi.md#projects_hosts_get) | **GET** /projects/{project_id}/hosts/{hostname} | Get specific host by hostname
 *HostsApi* | [**projects_hosts_list**](docs/HostsApi.md#projects_hosts_list) | **GET** /projects/{project_id}/hosts | List hosts for project
 *HostsApi* | [**projects_hosts_update**](docs/HostsApi.md#projects_hosts_update) | **PUT** /projects/{project_id}/hosts/{hostname} | Update specific host by hostname
+*HostsApi* | [**projects_hosts_verify_create**](docs/HostsApi.md#projects_hosts_verify_create) | **POST** /projects/{project_id}/hosts/{hostname}/verify | Schedule host verification task
 *OrganisationsApi* | [**organisations_create**](docs/OrganisationsApi.md#organisations_create) | **POST** /organisations | Create organisations
 *OrganisationsApi* | [**organisations_delete**](docs/OrganisationsApi.md#organisations_delete) | **DELETE** /organisations/{organisation_id} | Delete an organisation
 *OrganisationsApi* | [**organisations_get**](docs/OrganisationsApi.md#organisations_get) | **GET** /organisations/{organisation_id} | Get an organisation

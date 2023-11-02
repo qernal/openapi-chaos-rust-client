@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**projects_hosts_get**](HostsApi.md#projects_hosts_get) | **GET** /projects/{project_id}/hosts/{hostname} | Get specific host by hostname
 [**projects_hosts_list**](HostsApi.md#projects_hosts_list) | **GET** /projects/{project_id}/hosts | List hosts for project
 [**projects_hosts_update**](HostsApi.md#projects_hosts_update) | **PUT** /projects/{project_id}/hosts/{hostname} | Update specific host by hostname
+[**projects_hosts_verify_create**](HostsApi.md#projects_hosts_verify_create) | **POST** /projects/{project_id}/hosts/{hostname}/verify | Schedule host verification task
 
 
 
@@ -155,6 +156,35 @@ Name | Type | Description  | Required | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## projects_hosts_verify_create
+
+> crate::models::Host projects_hosts_verify_create(project_id, hostname)
+Schedule host verification task
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**project_id** | **uuid::Uuid** | Project ID reference | [required] |
+**hostname** | **String** | Hostname | [required] |
+
+### Return type
+
+[**crate::models::Host**](Host.md)
+
+### Authorization
+
+[cookie](../README.md#cookie), [token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
