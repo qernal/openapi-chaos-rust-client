@@ -29,12 +29,12 @@ pub struct AuthToken {
     #[serde(rename = "token", skip_serializing_if = "Option::is_none")]
     pub token: Option<String>,
     #[serde(rename = "date")]
-    pub date: Box<crate::models::Date>,
+    pub date: Box<models::Date>,
 }
 
 impl AuthToken {
     /// API auth token
-    pub fn new(id: uuid::Uuid, user_id: uuid::Uuid, name: String, date: crate::models::Date) -> AuthToken {
+    pub fn new(id: uuid::Uuid, user_id: uuid::Uuid, name: String, date: models::Date) -> AuthToken {
         AuthToken {
             id,
             user_id,

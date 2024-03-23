@@ -15,14 +15,14 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListSecretResponse {
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::PaginationMeta>,
+    pub meta: Box<models::PaginationMeta>,
     #[serde(rename = "data")]
-    pub data: Vec<crate::models::SecretMetaResponse>,
+    pub data: Vec<models::SecretMetaResponse>,
 }
 
 impl ListSecretResponse {
     /// List of secrets
-    pub fn new(meta: crate::models::PaginationMeta, data: Vec<crate::models::SecretMetaResponse>) -> ListSecretResponse {
+    pub fn new(meta: models::PaginationMeta, data: Vec<models::SecretMetaResponse>) -> ListSecretResponse {
         ListSecretResponse {
             meta: Box::new(meta),
             data,

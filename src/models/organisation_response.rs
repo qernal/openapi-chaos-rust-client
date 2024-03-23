@@ -24,12 +24,12 @@ pub struct OrganisationResponse {
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "date")]
-    pub date: Box<crate::models::Date>,
+    pub date: Box<models::Date>,
 }
 
 impl OrganisationResponse {
     /// Organisation response
-    pub fn new(id: uuid::Uuid, user_id: uuid::Uuid, name: String, date: crate::models::Date) -> OrganisationResponse {
+    pub fn new(id: uuid::Uuid, user_id: uuid::Uuid, name: String, date: models::Date) -> OrganisationResponse {
         OrganisationResponse {
             id,
             user_id,

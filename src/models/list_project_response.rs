@@ -15,14 +15,14 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListProjectResponse {
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::PaginationMeta>,
+    pub meta: Box<models::PaginationMeta>,
     #[serde(rename = "data")]
-    pub data: Vec<crate::models::ProjectResponse>,
+    pub data: Vec<models::ProjectResponse>,
 }
 
 impl ListProjectResponse {
     /// List of projects
-    pub fn new(meta: crate::models::PaginationMeta, data: Vec<crate::models::ProjectResponse>) -> ListProjectResponse {
+    pub fn new(meta: models::PaginationMeta, data: Vec<models::ProjectResponse>) -> ListProjectResponse {
         ListProjectResponse {
             meta: Box::new(meta),
             data,

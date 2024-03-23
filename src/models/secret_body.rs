@@ -18,9 +18,9 @@ pub struct SecretBody {
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "type")]
-    pub r#type: crate::models::SecretCreateType,
+    pub r#type: models::SecretCreateType,
     #[serde(rename = "payload")]
-    pub payload: Box<crate::models::SecretCreatePayload>,
+    pub payload: Box<models::SecretCreatePayload>,
     /// Encryption entity
     #[serde(rename = "encryption")]
     pub encryption: String,
@@ -28,7 +28,7 @@ pub struct SecretBody {
 
 impl SecretBody {
     /// Secret body
-    pub fn new(name: String, r#type: crate::models::SecretCreateType, payload: crate::models::SecretCreatePayload, encryption: String) -> SecretBody {
+    pub fn new(name: String, r#type: models::SecretCreateType, payload: models::SecretCreatePayload, encryption: String) -> SecretBody {
         SecretBody {
             name,
             r#type,

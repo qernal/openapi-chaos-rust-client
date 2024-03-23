@@ -19,9 +19,9 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum OrganisationsCreateError {
-    Status400(crate::models::BadRequestResponse),
-    Status403(crate::models::UnauthorisedResponse),
-    Status409(crate::models::ConflictResponse),
+    Status400(models::BadRequestResponse),
+    Status403(models::UnauthorisedResponse),
+    Status409(models::ConflictResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,8 +29,8 @@ pub enum OrganisationsCreateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum OrganisationsDeleteError {
-    Status404(crate::models::NotFoundResponse),
-    Status403(crate::models::UnauthorisedResponse),
+    Status404(models::NotFoundResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -38,8 +38,8 @@ pub enum OrganisationsDeleteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum OrganisationsGetError {
-    Status404(crate::models::NotFoundResponse),
-    Status403(crate::models::UnauthorisedResponse),
+    Status404(models::NotFoundResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -47,7 +47,7 @@ pub enum OrganisationsGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum OrganisationsListError {
-    Status403(crate::models::UnauthorisedResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -55,15 +55,15 @@ pub enum OrganisationsListError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum OrganisationsUpdateError {
-    Status404(crate::models::NotFoundResponse),
-    Status400(crate::models::BadRequestResponse),
-    Status403(crate::models::UnauthorisedResponse),
+    Status404(models::NotFoundResponse),
+    Status400(models::BadRequestResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
 
 /// Create an organisation
-pub async fn organisations_create(configuration: &configuration::Configuration, organisation_body: Option<crate::models::OrganisationBody>) -> Result<crate::models::OrganisationResponse, Error<OrganisationsCreateError>> {
+pub async fn organisations_create(configuration: &configuration::Configuration, organisation_body: Option<crate::models::OrganisationBody>) -> Result<models::OrganisationResponse, Error<OrganisationsCreateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -97,7 +97,7 @@ pub async fn organisations_create(configuration: &configuration::Configuration, 
 }
 
 /// Delete organisation, this will also delete all the resources within the organisation
-pub async fn organisations_delete(configuration: &configuration::Configuration, organisation_id: &str) -> Result<crate::models::DeletedResponse, Error<OrganisationsDeleteError>> {
+pub async fn organisations_delete(configuration: &configuration::Configuration, organisation_id: &str) -> Result<models::DeletedResponse, Error<OrganisationsDeleteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -130,7 +130,7 @@ pub async fn organisations_delete(configuration: &configuration::Configuration, 
 }
 
 /// Get a single organisation
-pub async fn organisations_get(configuration: &configuration::Configuration, organisation_id: &str) -> Result<crate::models::OrganisationResponse, Error<OrganisationsGetError>> {
+pub async fn organisations_get(configuration: &configuration::Configuration, organisation_id: &str) -> Result<models::OrganisationResponse, Error<OrganisationsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -163,7 +163,7 @@ pub async fn organisations_get(configuration: &configuration::Configuration, org
 }
 
 /// List organisations
-pub async fn organisations_list(configuration: &configuration::Configuration, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<crate::models::ListOrganisationResponse, Error<OrganisationsListError>> {
+pub async fn organisations_list(configuration: &configuration::Configuration, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<models::ListOrganisationResponse, Error<OrganisationsListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -206,7 +206,7 @@ pub async fn organisations_list(configuration: &configuration::Configuration, pa
 }
 
 /// Update an organisation
-pub async fn organisations_update(configuration: &configuration::Configuration, organisation_id: &str, organisation_body: Option<crate::models::OrganisationBody>) -> Result<crate::models::OrganisationResponse, Error<OrganisationsUpdateError>> {
+pub async fn organisations_update(configuration: &configuration::Configuration, organisation_id: &str, organisation_body: Option<crate::models::OrganisationBody>) -> Result<models::OrganisationResponse, Error<OrganisationsUpdateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

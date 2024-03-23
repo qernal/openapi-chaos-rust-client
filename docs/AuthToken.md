@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of token | 
 **expiry_at** | Option<**String**> |  | [optional]
 **token** | Option<**String**> | Combined token required for requesting an access token, this field is only returned once on creation or update (during regeneration). | [optional]
-**date** | [**crate::models::Date**](Date.md) |  | 
+**date** | [**models::Date**](Date.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

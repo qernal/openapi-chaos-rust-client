@@ -23,12 +23,12 @@ pub struct PaginationMeta {
     #[serde(rename = "pages")]
     pub pages: i32,
     #[serde(rename = "links")]
-    pub links: Box<crate::models::PaginationLinks>,
+    pub links: Box<models::PaginationLinks>,
 }
 
 impl PaginationMeta {
     /// Meta object for pagination use
-    pub fn new(results: i32, start: i32, end: i32, pages: i32, links: crate::models::PaginationLinks) -> PaginationMeta {
+    pub fn new(results: i32, start: i32, end: i32, pages: i32, links: models::PaginationLinks) -> PaginationMeta {
         PaginationMeta {
             results,
             start,

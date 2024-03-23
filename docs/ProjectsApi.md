@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## organisations_projects_list
 
-> crate::models::ListProjectResponse organisations_projects_list(organisation_id, page)
+> models::ListProjectResponse organisations_projects_list(organisation_id, page)
 Get all projects within an organisation
 
 Get all the projects linked to a specific organisation
@@ -30,7 +30,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListProjectResponse**](ListProjectResponse.md)
+[**models::ListProjectResponse**](ListProjectResponse.md)
 
 ### Authorization
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_create
 
-> crate::models::ProjectResponse projects_create(project_body)
+> models::ProjectResponse projects_create(project_body)
 Create project
 
 Create a new project
@@ -60,7 +60,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ProjectResponse**](ProjectResponse.md)
+[**models::ProjectResponse**](ProjectResponse.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_delete
 
-> crate::models::DeletedResponse projects_delete(project_id)
+> models::DeletedResponse projects_delete(project_id)
 Delete project
 
 Delete project, this will also delete all the resources within the project
@@ -90,7 +90,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeletedResponse**](DeletedResponse.md)
+[**models::DeletedResponse**](DeletedResponse.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_get
 
-> crate::models::ProjectResponse projects_get(project_id)
+> models::ProjectResponse projects_get(project_id)
 Get project
 
 Get a specific project
@@ -120,7 +120,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ProjectResponse**](ProjectResponse.md)
+[**models::ProjectResponse**](ProjectResponse.md)
 
 ### Authorization
 
@@ -136,7 +136,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_list
 
-> crate::models::ListProjectResponse projects_list(page)
+> models::ListProjectResponse projects_list(page)
 List projects
 
 Get all projects for this user, paginated
@@ -150,7 +150,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListProjectResponse**](ListProjectResponse.md)
+[**models::ListProjectResponse**](ListProjectResponse.md)
 
 ### Authorization
 
@@ -166,7 +166,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_update
 
-> crate::models::ProjectResponse projects_update(project_id, project_body_patch)
+> models::ProjectResponse projects_update(project_id, project_body_patch)
 Update project
 
 Update project
@@ -181,7 +181,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ProjectResponse**](ProjectResponse.md)
+[**models::ProjectResponse**](ProjectResponse.md)
 
 ### Authorization
 

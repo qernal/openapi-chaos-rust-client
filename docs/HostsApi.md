@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## projects_hosts_create
 
-> crate::models::Host projects_hosts_create(project_id, host_body)
+> models::Host projects_hosts_create(project_id, host_body)
 Create host for project
 
 Assign a host/domain to a project - hosts are globally unique and require verification, so a host cannot be assigned to multiple projects.  A host can be a valid domain, either a root domain or a subdomain. 
@@ -30,7 +30,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Host**](Host.md)
+[**models::Host**](Host.md)
 
 ### Authorization
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_hosts_delete
 
-> crate::models::DeletedResponse projects_hosts_delete(project_id, hostname)
+> models::DeletedResponse projects_hosts_delete(project_id, hostname)
 Delete specific host by hostname
 
 ### Parameters
@@ -59,7 +59,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeletedResponse**](DeletedResponse.md)
+[**models::DeletedResponse**](DeletedResponse.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_hosts_get
 
-> crate::models::Host projects_hosts_get(project_id, hostname)
+> models::Host projects_hosts_get(project_id, hostname)
 Get specific host by hostname
 
 ### Parameters
@@ -88,7 +88,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Host**](Host.md)
+[**models::Host**](Host.md)
 
 ### Authorization
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_hosts_list
 
-> crate::models::ListHosts projects_hosts_list(project_id, page)
+> models::ListHosts projects_hosts_list(project_id, page)
 List hosts for project
 
 ### Parameters
@@ -117,7 +117,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListHosts**](ListHosts.md)
+[**models::ListHosts**](ListHosts.md)
 
 ### Authorization
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_hosts_update
 
-> crate::models::Host projects_hosts_update(project_id, hostname, host_body_patch)
+> models::Host projects_hosts_update(project_id, hostname, host_body_patch)
 Update specific host by hostname
 
 ### Parameters
@@ -147,7 +147,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Host**](Host.md)
+[**models::Host**](Host.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_hosts_verify_create
 
-> crate::models::Host projects_hosts_verify_create(project_id, hostname)
+> models::Host projects_hosts_verify_create(project_id, hostname)
 Schedule host verification task
 
 ### Parameters
@@ -176,7 +176,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::Host**](Host.md)
+[**models::Host**](Host.md)
 
 ### Authorization
 

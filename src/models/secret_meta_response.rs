@@ -18,19 +18,19 @@ pub struct SecretMetaResponse {
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "type")]
-    pub r#type: crate::models::SecretMetaType,
+    pub r#type: models::SecretMetaType,
     #[serde(rename = "payload", skip_serializing_if = "Option::is_none")]
-    pub payload: Option<Box<crate::models::SecretMetaResponsePayload>>,
+    pub payload: Option<Box<models::SecretMetaResponsePayload>>,
     /// Secret revision
     #[serde(rename = "revision")]
     pub revision: i32,
     #[serde(rename = "date")]
-    pub date: Box<crate::models::Date>,
+    pub date: Box<models::Date>,
 }
 
 impl SecretMetaResponse {
     /// Secret metadata response
-    pub fn new(name: String, r#type: crate::models::SecretMetaType, revision: i32, date: crate::models::Date) -> SecretMetaResponse {
+    pub fn new(name: String, r#type: models::SecretMetaType, revision: i32, date: models::Date) -> SecretMetaResponse {
         SecretMetaResponse {
             name,
             r#type,

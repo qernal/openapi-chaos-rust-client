@@ -15,14 +15,14 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListHosts {
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::PaginationMeta>,
+    pub meta: Box<models::PaginationMeta>,
     #[serde(rename = "data")]
-    pub data: Vec<crate::models::Host>,
+    pub data: Vec<models::Host>,
 }
 
 impl ListHosts {
     /// List of projects hosts
-    pub fn new(meta: crate::models::PaginationMeta, data: Vec<crate::models::Host>) -> ListHosts {
+    pub fn new(meta: models::PaginationMeta, data: Vec<models::Host>) -> ListHosts {
         ListHosts {
             meta: Box::new(meta),
             data,

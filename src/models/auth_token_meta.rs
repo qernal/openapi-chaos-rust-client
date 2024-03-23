@@ -25,12 +25,12 @@ pub struct AuthTokenMeta {
     #[serde(rename = "expiry_at", skip_serializing_if = "Option::is_none")]
     pub expiry_at: Option<String>,
     #[serde(rename = "date")]
-    pub date: Box<crate::models::Date>,
+    pub date: Box<models::Date>,
 }
 
 impl AuthTokenMeta {
     /// API auth token meta
-    pub fn new(id: uuid::Uuid, user_id: uuid::Uuid, name: String, date: crate::models::Date) -> AuthTokenMeta {
+    pub fn new(id: uuid::Uuid, user_id: uuid::Uuid, name: String, date: models::Date) -> AuthTokenMeta {
         AuthTokenMeta {
             id,
             user_id,

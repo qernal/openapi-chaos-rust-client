@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## organisations_create
 
-> crate::models::OrganisationResponse organisations_create(organisation_body)
+> models::OrganisationResponse organisations_create(organisation_body)
 Create organisations
 
 Create an organisation
@@ -28,7 +28,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::OrganisationResponse**](OrganisationResponse.md)
+[**models::OrganisationResponse**](OrganisationResponse.md)
 
 ### Authorization
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Required | Notes
 
 ## organisations_delete
 
-> crate::models::DeletedResponse organisations_delete(organisation_id)
+> models::DeletedResponse organisations_delete(organisation_id)
 Delete an organisation
 
 Delete organisation, this will also delete all the resources within the organisation
@@ -58,7 +58,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeletedResponse**](DeletedResponse.md)
+[**models::DeletedResponse**](DeletedResponse.md)
 
 ### Authorization
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Required | Notes
 
 ## organisations_get
 
-> crate::models::OrganisationResponse organisations_get(organisation_id)
+> models::OrganisationResponse organisations_get(organisation_id)
 Get an organisation
 
 Get a single organisation
@@ -88,7 +88,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::OrganisationResponse**](OrganisationResponse.md)
+[**models::OrganisationResponse**](OrganisationResponse.md)
 
 ### Authorization
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Required | Notes
 
 ## organisations_list
 
-> crate::models::ListOrganisationResponse organisations_list(page)
+> models::ListOrganisationResponse organisations_list(page)
 List organisations
 
 List organisations
@@ -118,7 +118,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListOrganisationResponse**](ListOrganisationResponse.md)
+[**models::ListOrganisationResponse**](ListOrganisationResponse.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Required | Notes
 
 ## organisations_update
 
-> crate::models::OrganisationResponse organisations_update(organisation_id, organisation_body)
+> models::OrganisationResponse organisations_update(organisation_id, organisation_body)
 Update an organisation
 
 Update an organisation
@@ -149,7 +149,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::OrganisationResponse**](OrganisationResponse.md)
+[**models::OrganisationResponse**](OrganisationResponse.md)
 
 ### Authorization
 

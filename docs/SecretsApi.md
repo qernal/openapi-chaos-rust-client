@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## projects_secrets_create
 
-> crate::models::SecretResponse projects_secrets_create(project_id, secret_body)
+> models::SecretResponse projects_secrets_create(project_id, secret_body)
 Create project secret
 
 Create a new project secret
@@ -29,7 +29,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SecretResponse**](SecretResponse.md)
+[**models::SecretResponse**](SecretResponse.md)
 
 ### Authorization
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_secrets_delete
 
-> crate::models::DeletedResponse projects_secrets_delete(project_id, secret_name)
+> models::DeletedResponse projects_secrets_delete(project_id, secret_name)
 Delete project secret
 
 Delete project secret, if the secret is still linked to an active/deployed function - it cannot be removed
@@ -60,7 +60,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeletedResponse**](DeletedResponse.md)
+[**models::DeletedResponse**](DeletedResponse.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_secrets_get
 
-> crate::models::SecretMetaResponse projects_secrets_get(project_id, secret_name)
+> models::SecretMetaResponse projects_secrets_get(project_id, secret_name)
 Get project secret
 
 Get a specific project
@@ -91,7 +91,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SecretMetaResponse**](SecretMetaResponse.md)
+[**models::SecretMetaResponse**](SecretMetaResponse.md)
 
 ### Authorization
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_secrets_list
 
-> crate::models::ListSecretResponse projects_secrets_list(project_id, page, secret_type)
+> models::ListSecretResponse projects_secrets_list(project_id, page, secret_type)
 List project secrets of a specific type
 
 List project secrets of a specific type
@@ -123,7 +123,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListSecretResponse**](ListSecretResponse.md)
+[**models::ListSecretResponse**](ListSecretResponse.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_secrets_update
 
-> crate::models::SecretResponse projects_secrets_update(project_id, secret_name, secret_body_patch)
+> models::SecretResponse projects_secrets_update(project_id, secret_name, secret_body_patch)
 Update project secret
 
 Update project
@@ -155,7 +155,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::SecretResponse**](SecretResponse.md)
+[**models::SecretResponse**](SecretResponse.md)
 
 ### Authorization
 

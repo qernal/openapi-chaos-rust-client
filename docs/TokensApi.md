@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## auth_tokens_create
 
-> crate::models::AuthToken auth_tokens_create(auth_token_body)
+> models::AuthToken auth_tokens_create(auth_token_body)
 Create new auth token
 
 Create new auth token for use with the CLI and TF Provider  ### Warning The `token` field is only shown once and can't be retrieved again without generating a new token. Securely save this once the response has been received. 
@@ -28,7 +28,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AuthToken**](AuthToken.md)
+[**models::AuthToken**](AuthToken.md)
 
 ### Authorization
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Required | Notes
 
 ## auth_tokens_delete
 
-> crate::models::DeletedResponse auth_tokens_delete(token_id)
+> models::DeletedResponse auth_tokens_delete(token_id)
 Delete token
 
 ### Parameters
@@ -56,7 +56,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::DeletedResponse**](DeletedResponse.md)
+[**models::DeletedResponse**](DeletedResponse.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Required | Notes
 
 ## auth_tokens_get
 
-> crate::models::AuthTokenMeta auth_tokens_get(token_id)
+> models::AuthTokenMeta auth_tokens_get(token_id)
 Get token information
 
 ### Parameters
@@ -84,7 +84,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AuthTokenMeta**](AuthTokenMeta.md)
+[**models::AuthTokenMeta**](AuthTokenMeta.md)
 
 ### Authorization
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Required | Notes
 
 ## auth_tokens_list
 
-> crate::models::ListAuthTokens auth_tokens_list(page)
+> models::ListAuthTokens auth_tokens_list(page)
 List all user auth tokens
 
 ### Parameters
@@ -112,7 +112,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::ListAuthTokens**](ListAuthTokens.md)
+[**models::ListAuthTokens**](ListAuthTokens.md)
 
 ### Authorization
 
@@ -128,7 +128,7 @@ Name | Type | Description  | Required | Notes
 
 ## auth_tokens_update
 
-> crate::models::AuthToken auth_tokens_update(token_id, auth_token_patch)
+> models::AuthToken auth_tokens_update(token_id, auth_token_patch)
 Update token
 
 ### Parameters
@@ -141,7 +141,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**crate::models::AuthToken**](AuthToken.md)
+[**models::AuthToken**](AuthToken.md)
 
 ### Authorization
 

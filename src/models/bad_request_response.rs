@@ -17,12 +17,12 @@ pub struct BadRequestResponse {
     #[serde(rename = "message")]
     pub message: String,
     #[serde(rename = "fields")]
-    pub fields: Box<crate::models::BadRequestResponseFields>,
+    pub fields: Box<models::BadRequestResponseFields>,
 }
 
 impl BadRequestResponse {
     /// Bad request
-    pub fn new(message: String, fields: crate::models::BadRequestResponseFields) -> BadRequestResponse {
+    pub fn new(message: String, fields: models::BadRequestResponseFields) -> BadRequestResponse {
         BadRequestResponse {
             message,
             fields: Box::new(fields),

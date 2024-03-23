@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **user_id** | [**uuid::Uuid**](uuid::Uuid.md) | User | 
 **name** | **String** | Name of token | 
 **expiry_at** | Option<**String**> |  | [optional]
-**date** | [**crate::models::Date**](Date.md) |  | 
+**date** | [**models::Date**](Date.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

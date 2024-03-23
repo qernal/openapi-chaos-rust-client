@@ -19,9 +19,9 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsHostsCreateError {
-    Status404(crate::models::NotFoundResponse),
-    Status400(crate::models::BadRequestResponse),
-    Status409(crate::models::ConflictResponse),
+    Status404(models::NotFoundResponse),
+    Status400(models::BadRequestResponse),
+    Status409(models::ConflictResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -29,7 +29,7 @@ pub enum ProjectsHostsCreateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsHostsDeleteError {
-    Status404(crate::models::NotFoundResponse),
+    Status404(models::NotFoundResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -37,7 +37,7 @@ pub enum ProjectsHostsDeleteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsHostsGetError {
-    Status404(crate::models::NotFoundResponse),
+    Status404(models::NotFoundResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -45,7 +45,7 @@ pub enum ProjectsHostsGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsHostsListError {
-    Status404(crate::models::NotFoundResponse),
+    Status404(models::NotFoundResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -53,7 +53,7 @@ pub enum ProjectsHostsListError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsHostsUpdateError {
-    Status404(crate::models::NotFoundResponse),
+    Status404(models::NotFoundResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -61,14 +61,14 @@ pub enum ProjectsHostsUpdateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsHostsVerifyCreateError {
-    Status404(crate::models::NotFoundResponse),
-    Status400(crate::models::BadRequestResponse),
+    Status404(models::NotFoundResponse),
+    Status400(models::BadRequestResponse),
     UnknownValue(serde_json::Value),
 }
 
 
 /// Assign a host/domain to a project - hosts are globally unique and require verification, so a host cannot be assigned to multiple projects.  A host can be a valid domain, either a root domain or a subdomain. 
-pub async fn projects_hosts_create(configuration: &configuration::Configuration, project_id: &str, host_body: crate::models::HostBody) -> Result<crate::models::Host, Error<ProjectsHostsCreateError>> {
+pub async fn projects_hosts_create(configuration: &configuration::Configuration, project_id: &str, host_body: crate::models::HostBody) -> Result<models::Host, Error<ProjectsHostsCreateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -101,7 +101,7 @@ pub async fn projects_hosts_create(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn projects_hosts_delete(configuration: &configuration::Configuration, project_id: &str, hostname: &str) -> Result<crate::models::DeletedResponse, Error<ProjectsHostsDeleteError>> {
+pub async fn projects_hosts_delete(configuration: &configuration::Configuration, project_id: &str, hostname: &str) -> Result<models::DeletedResponse, Error<ProjectsHostsDeleteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -133,7 +133,7 @@ pub async fn projects_hosts_delete(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn projects_hosts_get(configuration: &configuration::Configuration, project_id: &str, hostname: &str) -> Result<crate::models::Host, Error<ProjectsHostsGetError>> {
+pub async fn projects_hosts_get(configuration: &configuration::Configuration, project_id: &str, hostname: &str) -> Result<models::Host, Error<ProjectsHostsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -165,7 +165,7 @@ pub async fn projects_hosts_get(configuration: &configuration::Configuration, pr
     }
 }
 
-pub async fn projects_hosts_list(configuration: &configuration::Configuration, project_id: &str, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<crate::models::ListHosts, Error<ProjectsHostsListError>> {
+pub async fn projects_hosts_list(configuration: &configuration::Configuration, project_id: &str, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<models::ListHosts, Error<ProjectsHostsListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -207,7 +207,7 @@ pub async fn projects_hosts_list(configuration: &configuration::Configuration, p
     }
 }
 
-pub async fn projects_hosts_update(configuration: &configuration::Configuration, project_id: &str, hostname: &str, host_body_patch: crate::models::HostBodyPatch) -> Result<crate::models::Host, Error<ProjectsHostsUpdateError>> {
+pub async fn projects_hosts_update(configuration: &configuration::Configuration, project_id: &str, hostname: &str, host_body_patch: crate::models::HostBodyPatch) -> Result<models::Host, Error<ProjectsHostsUpdateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -240,7 +240,7 @@ pub async fn projects_hosts_update(configuration: &configuration::Configuration,
     }
 }
 
-pub async fn projects_hosts_verify_create(configuration: &configuration::Configuration, project_id: &str, hostname: &str) -> Result<crate::models::Host, Error<ProjectsHostsVerifyCreateError>> {
+pub async fn projects_hosts_verify_create(configuration: &configuration::Configuration, project_id: &str, hostname: &str) -> Result<models::Host, Error<ProjectsHostsVerifyCreateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -15,9 +15,9 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SecretBodyPatch {
     #[serde(rename = "type")]
-    pub r#type: crate::models::SecretCreateType,
+    pub r#type: models::SecretCreateType,
     #[serde(rename = "payload")]
-    pub payload: Box<crate::models::SecretCreatePayload>,
+    pub payload: Box<models::SecretCreatePayload>,
     /// Encryption entity
     #[serde(rename = "encryption")]
     pub encryption: String,
@@ -25,7 +25,7 @@ pub struct SecretBodyPatch {
 
 impl SecretBodyPatch {
     /// Secret body patch fields
-    pub fn new(r#type: crate::models::SecretCreateType, payload: crate::models::SecretCreatePayload, encryption: String) -> SecretBodyPatch {
+    pub fn new(r#type: models::SecretCreateType, payload: models::SecretCreatePayload, encryption: String) -> SecretBodyPatch {
         SecretBodyPatch {
             r#type,
             payload: Box::new(payload),

@@ -15,14 +15,14 @@
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct ListAuthTokens {
     #[serde(rename = "meta")]
-    pub meta: Box<crate::models::PaginationMeta>,
+    pub meta: Box<models::PaginationMeta>,
     #[serde(rename = "data")]
-    pub data: Vec<crate::models::AuthTokenMeta>,
+    pub data: Vec<models::AuthTokenMeta>,
 }
 
 impl ListAuthTokens {
     /// List of auth tokens
-    pub fn new(meta: crate::models::PaginationMeta, data: Vec<crate::models::AuthTokenMeta>) -> ListAuthTokens {
+    pub fn new(meta: models::PaginationMeta, data: Vec<models::AuthTokenMeta>) -> ListAuthTokens {
         ListAuthTokens {
             meta: Box::new(meta),
             data,

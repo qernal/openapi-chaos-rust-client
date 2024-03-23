@@ -19,10 +19,10 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsSecretsCreateError {
-    Status404(crate::models::NotFoundResponse),
-    Status400(crate::models::BadRequestResponse),
-    Status403(crate::models::UnauthorisedResponse),
-    Status409(crate::models::ConflictResponse),
+    Status404(models::NotFoundResponse),
+    Status400(models::BadRequestResponse),
+    Status403(models::UnauthorisedResponse),
+    Status409(models::ConflictResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -30,8 +30,8 @@ pub enum ProjectsSecretsCreateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsSecretsDeleteError {
-    Status404(crate::models::NotFoundResponse),
-    Status403(crate::models::UnauthorisedResponse),
+    Status404(models::NotFoundResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,8 +39,8 @@ pub enum ProjectsSecretsDeleteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsSecretsGetError {
-    Status404(crate::models::NotFoundResponse),
-    Status403(crate::models::UnauthorisedResponse),
+    Status404(models::NotFoundResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -48,8 +48,8 @@ pub enum ProjectsSecretsGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsSecretsListError {
-    Status404(crate::models::NotFoundResponse),
-    Status403(crate::models::UnauthorisedResponse),
+    Status404(models::NotFoundResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -57,15 +57,15 @@ pub enum ProjectsSecretsListError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsSecretsUpdateError {
-    Status404(crate::models::NotFoundResponse),
-    Status400(crate::models::BadRequestResponse),
-    Status403(crate::models::UnauthorisedResponse),
+    Status404(models::NotFoundResponse),
+    Status400(models::BadRequestResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
 
 /// Create a new project secret
-pub async fn projects_secrets_create(configuration: &configuration::Configuration, project_id: &str, secret_body: crate::models::SecretBody) -> Result<crate::models::SecretResponse, Error<ProjectsSecretsCreateError>> {
+pub async fn projects_secrets_create(configuration: &configuration::Configuration, project_id: &str, secret_body: crate::models::SecretBody) -> Result<models::SecretResponse, Error<ProjectsSecretsCreateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -99,7 +99,7 @@ pub async fn projects_secrets_create(configuration: &configuration::Configuratio
 }
 
 /// Delete project secret, if the secret is still linked to an active/deployed function - it cannot be removed
-pub async fn projects_secrets_delete(configuration: &configuration::Configuration, project_id: &str, secret_name: &str) -> Result<crate::models::DeletedResponse, Error<ProjectsSecretsDeleteError>> {
+pub async fn projects_secrets_delete(configuration: &configuration::Configuration, project_id: &str, secret_name: &str) -> Result<models::DeletedResponse, Error<ProjectsSecretsDeleteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -132,7 +132,7 @@ pub async fn projects_secrets_delete(configuration: &configuration::Configuratio
 }
 
 /// Get a specific project
-pub async fn projects_secrets_get(configuration: &configuration::Configuration, project_id: &str, secret_name: &str) -> Result<crate::models::SecretMetaResponse, Error<ProjectsSecretsGetError>> {
+pub async fn projects_secrets_get(configuration: &configuration::Configuration, project_id: &str, secret_name: &str) -> Result<models::SecretMetaResponse, Error<ProjectsSecretsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -165,7 +165,7 @@ pub async fn projects_secrets_get(configuration: &configuration::Configuration, 
 }
 
 /// List project secrets of a specific type
-pub async fn projects_secrets_list(configuration: &configuration::Configuration, project_id: &str, page: Option<crate::models::OrganisationsListPageParameter>, secret_type: Option<crate::models::SecretMetaType>) -> Result<crate::models::ListSecretResponse, Error<ProjectsSecretsListError>> {
+pub async fn projects_secrets_list(configuration: &configuration::Configuration, project_id: &str, page: Option<crate::models::OrganisationsListPageParameter>, secret_type: Option<crate::models::SecretMetaType>) -> Result<models::ListSecretResponse, Error<ProjectsSecretsListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -211,7 +211,7 @@ pub async fn projects_secrets_list(configuration: &configuration::Configuration,
 }
 
 /// Update project
-pub async fn projects_secrets_update(configuration: &configuration::Configuration, project_id: &str, secret_name: &str, secret_body_patch: crate::models::SecretBodyPatch) -> Result<crate::models::SecretResponse, Error<ProjectsSecretsUpdateError>> {
+pub async fn projects_secrets_update(configuration: &configuration::Configuration, project_id: &str, secret_name: &str, secret_body_patch: crate::models::SecretBodyPatch) -> Result<models::SecretResponse, Error<ProjectsSecretsUpdateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -39,14 +39,14 @@ pub struct Host {
     #[serde(rename = "verified_at", skip_serializing_if = "Option::is_none")]
     pub verified_at: Option<String>,
     #[serde(rename = "date")]
-    pub date: Box<crate::models::Date>,
+    pub date: Box<models::Date>,
     #[serde(rename = "verification_status")]
-    pub verification_status: crate::models::HostVerificationStatus,
+    pub verification_status: models::HostVerificationStatus,
 }
 
 impl Host {
     /// Host response
-    pub fn new(id: uuid::Uuid, host: String, project_id: uuid::Uuid, read_only: bool, disabled: bool, txt_verification: String, date: crate::models::Date, verification_status: crate::models::HostVerificationStatus) -> Host {
+    pub fn new(id: uuid::Uuid, host: String, project_id: uuid::Uuid, read_only: bool, disabled: bool, txt_verification: String, date: models::Date, verification_status: models::HostVerificationStatus) -> Host {
         Host {
             id,
             host,

@@ -19,8 +19,8 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AuthTokensCreateError {
-    Status404(crate::models::NotFoundResponse),
-    Status400(crate::models::BadRequestResponse),
+    Status404(models::NotFoundResponse),
+    Status400(models::BadRequestResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,7 +28,7 @@ pub enum AuthTokensCreateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AuthTokensDeleteError {
-    Status404(crate::models::NotFoundResponse),
+    Status404(models::NotFoundResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -36,8 +36,8 @@ pub enum AuthTokensDeleteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AuthTokensGetError {
-    Status404(crate::models::NotFoundResponse),
-    Status400(crate::models::BadRequestResponse),
+    Status404(models::NotFoundResponse),
+    Status400(models::BadRequestResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -45,8 +45,8 @@ pub enum AuthTokensGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AuthTokensListError {
-    Status404(crate::models::NotFoundResponse),
-    Status400(crate::models::BadRequestResponse),
+    Status404(models::NotFoundResponse),
+    Status400(models::BadRequestResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -54,14 +54,14 @@ pub enum AuthTokensListError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AuthTokensUpdateError {
-    Status404(crate::models::NotFoundResponse),
-    Status400(crate::models::BadRequestResponse),
+    Status404(models::NotFoundResponse),
+    Status400(models::BadRequestResponse),
     UnknownValue(serde_json::Value),
 }
 
 
 /// Create new auth token for use with the CLI and TF Provider  ### Warning The `token` field is only shown once and can't be retrieved again without generating a new token. Securely save this once the response has been received. 
-pub async fn auth_tokens_create(configuration: &configuration::Configuration, auth_token_body: crate::models::AuthTokenBody) -> Result<crate::models::AuthToken, Error<AuthTokensCreateError>> {
+pub async fn auth_tokens_create(configuration: &configuration::Configuration, auth_token_body: crate::models::AuthTokenBody) -> Result<models::AuthToken, Error<AuthTokensCreateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -94,7 +94,7 @@ pub async fn auth_tokens_create(configuration: &configuration::Configuration, au
     }
 }
 
-pub async fn auth_tokens_delete(configuration: &configuration::Configuration, token_id: &str) -> Result<crate::models::DeletedResponse, Error<AuthTokensDeleteError>> {
+pub async fn auth_tokens_delete(configuration: &configuration::Configuration, token_id: &str) -> Result<models::DeletedResponse, Error<AuthTokensDeleteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -126,7 +126,7 @@ pub async fn auth_tokens_delete(configuration: &configuration::Configuration, to
     }
 }
 
-pub async fn auth_tokens_get(configuration: &configuration::Configuration, token_id: &str) -> Result<crate::models::AuthTokenMeta, Error<AuthTokensGetError>> {
+pub async fn auth_tokens_get(configuration: &configuration::Configuration, token_id: &str) -> Result<models::AuthTokenMeta, Error<AuthTokensGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -158,7 +158,7 @@ pub async fn auth_tokens_get(configuration: &configuration::Configuration, token
     }
 }
 
-pub async fn auth_tokens_list(configuration: &configuration::Configuration, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<crate::models::ListAuthTokens, Error<AuthTokensListError>> {
+pub async fn auth_tokens_list(configuration: &configuration::Configuration, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<models::ListAuthTokens, Error<AuthTokensListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -200,7 +200,7 @@ pub async fn auth_tokens_list(configuration: &configuration::Configuration, page
     }
 }
 
-pub async fn auth_tokens_update(configuration: &configuration::Configuration, token_id: &str, auth_token_patch: crate::models::AuthTokenPatch) -> Result<crate::models::AuthToken, Error<AuthTokensUpdateError>> {
+pub async fn auth_tokens_update(configuration: &configuration::Configuration, token_id: &str, auth_token_patch: crate::models::AuthTokenPatch) -> Result<models::AuthToken, Error<AuthTokensUpdateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

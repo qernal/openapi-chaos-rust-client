@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **start** | **i32** |  | 
 **end** | **i32** |  | 
 **pages** | **i32** |  | 
-**links** | [**crate::models::PaginationLinks**](PaginationLinks.md) |  | 
+**links** | [**models::PaginationLinks**](PaginationLinks.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

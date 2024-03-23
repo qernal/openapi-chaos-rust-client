@@ -19,8 +19,8 @@ use super::{Error, configuration};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum OrganisationsProjectsListError {
-    Status404(crate::models::NotFoundResponse),
-    Status403(crate::models::UnauthorisedResponse),
+    Status404(models::NotFoundResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -28,10 +28,10 @@ pub enum OrganisationsProjectsListError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsCreateError {
-    Status404(crate::models::NotFoundResponse),
-    Status400(crate::models::BadRequestResponse),
-    Status403(crate::models::UnauthorisedResponse),
-    Status409(crate::models::ConflictResponse),
+    Status404(models::NotFoundResponse),
+    Status400(models::BadRequestResponse),
+    Status403(models::UnauthorisedResponse),
+    Status409(models::ConflictResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -39,8 +39,8 @@ pub enum ProjectsCreateError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsDeleteError {
-    Status404(crate::models::NotFoundResponse),
-    Status403(crate::models::UnauthorisedResponse),
+    Status404(models::NotFoundResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -48,8 +48,8 @@ pub enum ProjectsDeleteError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsGetError {
-    Status404(crate::models::NotFoundResponse),
-    Status403(crate::models::UnauthorisedResponse),
+    Status404(models::NotFoundResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -57,7 +57,7 @@ pub enum ProjectsGetError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsListError {
-    Status403(crate::models::UnauthorisedResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
@@ -65,15 +65,15 @@ pub enum ProjectsListError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ProjectsUpdateError {
-    Status404(crate::models::NotFoundResponse),
-    Status400(crate::models::BadRequestResponse),
-    Status403(crate::models::UnauthorisedResponse),
+    Status404(models::NotFoundResponse),
+    Status400(models::BadRequestResponse),
+    Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
 
 /// Get all the projects linked to a specific organisation
-pub async fn organisations_projects_list(configuration: &configuration::Configuration, organisation_id: &str, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<crate::models::ListProjectResponse, Error<OrganisationsProjectsListError>> {
+pub async fn organisations_projects_list(configuration: &configuration::Configuration, organisation_id: &str, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<models::ListProjectResponse, Error<OrganisationsProjectsListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -116,7 +116,7 @@ pub async fn organisations_projects_list(configuration: &configuration::Configur
 }
 
 /// Create a new project
-pub async fn projects_create(configuration: &configuration::Configuration, project_body: Option<crate::models::ProjectBody>) -> Result<crate::models::ProjectResponse, Error<ProjectsCreateError>> {
+pub async fn projects_create(configuration: &configuration::Configuration, project_body: Option<crate::models::ProjectBody>) -> Result<models::ProjectResponse, Error<ProjectsCreateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -150,7 +150,7 @@ pub async fn projects_create(configuration: &configuration::Configuration, proje
 }
 
 /// Delete project, this will also delete all the resources within the project
-pub async fn projects_delete(configuration: &configuration::Configuration, project_id: &str) -> Result<crate::models::DeletedResponse, Error<ProjectsDeleteError>> {
+pub async fn projects_delete(configuration: &configuration::Configuration, project_id: &str) -> Result<models::DeletedResponse, Error<ProjectsDeleteError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -183,7 +183,7 @@ pub async fn projects_delete(configuration: &configuration::Configuration, proje
 }
 
 /// Get a specific project
-pub async fn projects_get(configuration: &configuration::Configuration, project_id: &str) -> Result<crate::models::ProjectResponse, Error<ProjectsGetError>> {
+pub async fn projects_get(configuration: &configuration::Configuration, project_id: &str) -> Result<models::ProjectResponse, Error<ProjectsGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -216,7 +216,7 @@ pub async fn projects_get(configuration: &configuration::Configuration, project_
 }
 
 /// Get all projects for this user, paginated
-pub async fn projects_list(configuration: &configuration::Configuration, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<crate::models::ListProjectResponse, Error<ProjectsListError>> {
+pub async fn projects_list(configuration: &configuration::Configuration, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<models::ListProjectResponse, Error<ProjectsListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -259,7 +259,7 @@ pub async fn projects_list(configuration: &configuration::Configuration, page: O
 }
 
 /// Update project
-pub async fn projects_update(configuration: &configuration::Configuration, project_id: &str, project_body_patch: Option<crate::models::ProjectBodyPatch>) -> Result<crate::models::ProjectResponse, Error<ProjectsUpdateError>> {
+pub async fn projects_update(configuration: &configuration::Configuration, project_id: &str, project_body_patch: Option<crate::models::ProjectBodyPatch>) -> Result<models::ProjectResponse, Error<ProjectsUpdateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
