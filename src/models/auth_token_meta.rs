@@ -10,6 +10,9 @@
 
 /// AuthTokenMeta : API auth token meta
 
+#[allow(unused_imports)]
+use crate::models;
+
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]

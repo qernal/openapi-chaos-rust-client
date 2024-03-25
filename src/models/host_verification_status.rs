@@ -10,6 +10,9 @@
 
 /// HostVerificationStatus : Host verification status
 
+#[allow(unused_imports)]
+use crate::models;
+
 /// Host verification status
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum HostVerificationStatus {

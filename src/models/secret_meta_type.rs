@@ -10,6 +10,9 @@
 
 /// SecretMetaType : Secrets types: registry, certificate, environment, dek
 
+#[allow(unused_imports)]
+use crate::models;
+
 /// Secrets types: registry, certificate, environment, dek
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum SecretMetaType {

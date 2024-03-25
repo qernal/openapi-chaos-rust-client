@@ -13,6 +13,9 @@ use super::SecretCertificate;
 use super::SecretEnvironment;
 use super::SecretRegistry;
 
+#[allow(unused_imports)]
+use crate::models;
+
 
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]

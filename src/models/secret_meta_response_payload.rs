@@ -12,6 +12,9 @@ use super::SecretMetaResponseCertificatePayload;
 use super::SecretMetaResponseDek;
 use super::SecretMetaResponseRegistryPayload;
 
+#[allow(unused_imports)]
+use crate::models;
+
 
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]

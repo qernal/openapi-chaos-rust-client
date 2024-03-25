@@ -10,6 +10,9 @@
 
 /// NotFoundResponse : Resource not found
 
+#[allow(unused_imports)]
+use crate::models;
+
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]

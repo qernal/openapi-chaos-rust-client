@@ -11,6 +11,7 @@
 
 use reqwest;
 
+use crate::models;
 use crate::apis::ResponseContent;
 use super::{Error, configuration};
 

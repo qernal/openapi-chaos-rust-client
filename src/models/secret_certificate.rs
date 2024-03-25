@@ -10,6 +10,9 @@
 
 /// SecretCertificate : Encrypted SSL private key and plain certificate. Certificate expected in x509 pem format, key expected in pkcs8 or pkcs1 pem format. `type: certificate`
 
+#[allow(unused_imports)]
+use crate::models;
+
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]

@@ -10,6 +10,9 @@
 
 /// ProjectBodyPatch : Project patch fields
 
+#[allow(unused_imports)]
+use crate::models;
+
 
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
