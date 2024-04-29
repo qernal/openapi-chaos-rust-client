@@ -13,8 +13,9 @@ fn query_to_pairs(query: &impl serde::Serialize) -> Vec<(String, String)> {
     query
         .split('&')
         .map(|v| {
-            let split = v.split_once('=').unwrap();
-            (split.0.into(), split.1.into())
+            let (lhs, rhs) = v.split_once('=').unwrap();
+            let rhs = urlencoding::decode(rhs).unwrap().into();
+            (lhs.into(), rhs)
         })
         .collect()
 }
