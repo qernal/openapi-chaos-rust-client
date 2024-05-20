@@ -25,7 +25,7 @@ Create a new project secret
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **project_id** | **uuid::Uuid** | Project ID reference | [required] |
-**secret_body** | [**SecretBody**](SecretBody.md) | Create/Update any field | [required] |
+**secret_body** | [**SecretBody**](SecretBody.md) | Create/Update any field  The example generated may only be for one of the secret types, look towards the payload section of the schema for further fields, values and examples.  | [required] |
 
 ### Return type
 

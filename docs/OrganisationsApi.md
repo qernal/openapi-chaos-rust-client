@@ -104,7 +104,7 @@ Name | Type | Description  | Required | Notes
 
 ## organisations_list
 
-> models::ListOrganisationResponse organisations_list(page)
+> models::ListOrganisationResponse organisations_list(page, f_name)
 List organisations
 
 List organisations
@@ -115,6 +115,7 @@ List organisations
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **page** | Option<[**OrganisationsListPageParameter**](.md)> | Query parameters for pagination |  |
+**f_name** | Option<**String**> | Filter resource on name, if the value ends in an asterix it will be treated as a partial search otherwise, it'll be an exact match  |  |
 
 ### Return type
 

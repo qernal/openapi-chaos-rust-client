@@ -17,10 +17,10 @@ use crate::models;
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct HostBodyPatch {
-    /// Reference to secret certificate path
+    /// The secret reference to the certificate
     #[serde(rename = "certificate", skip_serializing_if = "Option::is_none")]
     pub certificate: Option<String>,
-    /// If the host is disabled, then this host won't be accessible and so the deployments will not work on this host
+    /// If the host is disabled, then this host won't be accessible and so the deployments will not be routable
     #[serde(rename = "disabled", skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
 }

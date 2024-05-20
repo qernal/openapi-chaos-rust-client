@@ -17,7 +17,7 @@ use crate::models;
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SecretRegistry {
-    /// Url to private container repository (for docker registry use https://index.docker.io/v1/)
+    /// Url to private container repository (for docker registry use docker.io)
     #[serde(rename = "registry")]
     pub registry: String,
     /// Token used for auth to the registry

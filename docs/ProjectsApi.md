@@ -136,7 +136,7 @@ Name | Type | Description  | Required | Notes
 
 ## projects_list
 
-> models::ListProjectResponse projects_list(page)
+> models::ListProjectResponse projects_list(page, f_name)
 List projects
 
 Get all projects for this user, paginated
@@ -147,6 +147,7 @@ Get all projects for this user, paginated
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **page** | Option<[**OrganisationsListPageParameter**](.md)> | Query parameters for pagination |  |
+**f_name** | Option<**String**> | Filter resource on name, if the value ends in an asterix it will be treated as a partial search otherwise, it'll be an exact match  |  |
 
 ### Return type
 

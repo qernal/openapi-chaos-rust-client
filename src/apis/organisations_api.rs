@@ -164,7 +164,7 @@ pub async fn organisations_get(configuration: &configuration::Configuration, org
 }
 
 /// List organisations
-pub async fn organisations_list(configuration: &configuration::Configuration, page: Option<crate::models::OrganisationsListPageParameter>) -> Result<models::ListOrganisationResponse, Error<OrganisationsListError>> {
+pub async fn organisations_list(configuration: &configuration::Configuration, page: Option<crate::models::OrganisationsListPageParameter>, f_name: Option<&str>) -> Result<models::ListOrganisationResponse, Error<OrganisationsListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -181,6 +181,9 @@ pub async fn organisations_list(configuration: &configuration::Configuration, pa
         // let params = crate::apis::parse_deep_object("page", local_var_str);
         let params = crate::query_to_pairs(&local_deep_struct);
         local_var_req_builder = local_var_req_builder.query(&params);
+    }
+    if let Some(ref local_var_str) = f_name {
+        local_var_req_builder = local_var_req_builder.query(&[("f_name", &local_var_str.to_string())]);
     }
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());

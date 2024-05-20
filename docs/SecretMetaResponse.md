@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Project name | 
+**name** | **String** | Secret name | 
 **r#type** | [**models::SecretMetaType**](SecretMetaType.md) |  | 
 **payload** | Option<[**models::SecretMetaResponsePayload**](SecretMetaResponse_payload.md)> |  | [optional]
 **revision** | **i32** | Secret revision | 

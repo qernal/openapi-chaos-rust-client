@@ -17,7 +17,7 @@ use crate::models;
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SecretMetaResponse {
-    /// Project name
+    /// Secret name
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "type")]

@@ -17,10 +17,10 @@ use crate::models;
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct FunctionSize {
-    /// CPU in 0.1 vCPU increments, for a whole vCPU specify 1024 Must be in multiples of 128, with the same multiplier as memory 
+    /// CPU in 0.1 vCPU increments, for a whole vCPU specify 1024 Must be in multiples of 128, with the same multiplier as memory from the base 
     #[serde(rename = "cpu")]
     pub cpu: i32,
-    /// Memory in 128 MB increments, values are integer always in MB Must be in multiples of 128, with the same multiplier as CPU 
+    /// Memory in 128 MB increments, values are integer always in MB Must be in multiples of 128, with the same multiplier as CPU from the base 
     #[serde(rename = "memory")]
     pub memory: i32,
 }

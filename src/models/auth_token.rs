@@ -26,6 +26,7 @@ pub struct AuthToken {
     /// Name of token
     #[serde(rename = "name")]
     pub name: String,
+    /// When the token expires
     #[serde(rename = "expiry_at", skip_serializing_if = "Option::is_none")]
     pub expiry_at: Option<String>,
     /// Combined token required for requesting an access token, this field is only returned once on creation or update (during regeneration).
