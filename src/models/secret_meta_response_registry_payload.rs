@@ -17,7 +17,7 @@ use crate::models;
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SecretMetaResponseRegistryPayload {
-    /// Registry domain
+    /// Private registry domain/location, when using the private docker hub registry sepcify `docker.io` > Without http scheme 
     #[serde(rename = "registry")]
     pub registry: String,
 }
