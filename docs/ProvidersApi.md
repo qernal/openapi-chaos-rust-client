@@ -4,24 +4,27 @@ All URIs are relative to *https://chaos.qernal.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**providers_get**](ProvidersApi.md#providers_get) | **GET** /providers | Get available providers
+[**providers_list**](ProvidersApi.md#providers_list) | **GET** /providers | Get available providers
 
 
 
-## providers_get
+## providers_list
 
-> Vec<models::ProviderInner> providers_get()
+> models::ListProviderResponse providers_list(page)
 Get available providers
 
 Retrieve a list of all providers with their respective deployed regions and cities.
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**page** | Option<[**OrganisationsListPageParameter**](.md)> | Query parameters for pagination |  |
 
 ### Return type
 
-[**Vec<models::ProviderInner>**](Provider_inner.md)
+[**models::ListProviderResponse**](ListProviderResponse.md)
 
 ### Authorization
 

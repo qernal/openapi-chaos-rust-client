@@ -49,7 +49,7 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**projects_get**](docs/ProjectsApi.md#projects_get) | **GET** /projects/{project_id} | Get project
 *ProjectsApi* | [**projects_list**](docs/ProjectsApi.md#projects_list) | **GET** /projects | List projects
 *ProjectsApi* | [**projects_update**](docs/ProjectsApi.md#projects_update) | **PUT** /projects/{project_id} | Update project
-*ProvidersApi* | [**providers_get**](docs/ProvidersApi.md#providers_get) | **GET** /providers | Get available providers
+*ProvidersApi* | [**providers_list**](docs/ProvidersApi.md#providers_list) | **GET** /providers | Get available providers
 *SecretsApi* | [**projects_secrets_create**](docs/SecretsApi.md#projects_secrets_create) | **POST** /projects/{project_id}/secrets | Create project secret
 *SecretsApi* | [**projects_secrets_delete**](docs/SecretsApi.md#projects_secrets_delete) | **DELETE** /projects/{project_id}/secrets/{secret_name} | Delete project secret
 *SecretsApi* | [**projects_secrets_get**](docs/SecretsApi.md#projects_secrets_get) | **GET** /projects/{project_id}/secrets/{secret_name} | Get project secret
@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
  - [ListHosts](docs/ListHosts.md)
  - [ListOrganisationResponse](docs/ListOrganisationResponse.md)
  - [ListProjectResponse](docs/ListProjectResponse.md)
+ - [ListProviderResponse](docs/ListProviderResponse.md)
  - [ListSecretResponse](docs/ListSecretResponse.md)
  - [Location](docs/Location.md)
  - [NotFoundResponse](docs/NotFoundResponse.md)
@@ -105,8 +106,8 @@ Class | Method | HTTP request | Description
  - [ProjectBody](docs/ProjectBody.md)
  - [ProjectBodyPatch](docs/ProjectBodyPatch.md)
  - [ProjectResponse](docs/ProjectResponse.md)
- - [ProviderInner](docs/ProviderInner.md)
- - [ProviderInnerLocations](docs/ProviderInnerLocations.md)
+ - [Provider](docs/Provider.md)
+ - [ProviderLocations](docs/ProviderLocations.md)
  - [SecretBody](docs/SecretBody.md)
  - [SecretBodyPatch](docs/SecretBodyPatch.md)
  - [SecretCertificate](docs/SecretCertificate.md)
