@@ -5,6 +5,7 @@
 | Name | Value |
 |---- | -----|
 | Pending | pending |
+| AlreadyVerified | already_verified |
 | Completed | completed |
 | Failed | failed |
 

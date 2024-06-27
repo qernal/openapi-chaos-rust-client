@@ -18,6 +18,8 @@ use crate::models;
 pub enum HostVerificationStatus {
     #[serde(rename = "pending")]
     Pending,
+    #[serde(rename = "already_verified")]
+    AlreadyVerified,
     #[serde(rename = "completed")]
     Completed,
     #[serde(rename = "failed")]
@@ -29,6 +31,7 @@ impl ToString for HostVerificationStatus {
     fn to_string(&self) -> String {
         match self {
             Self::Pending => String::from("pending"),
+            Self::AlreadyVerified => String::from("already_verified"),
             Self::Completed => String::from("completed"),
             Self::Failed => String::from("failed"),
         }
