@@ -17,7 +17,7 @@ use crate::models;
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct SecretEnvironment {
-    /// Encrypted environment pairs (key - env key, value - env value)
+    /// Encrypted environment value
     #[serde(rename = "environment_value")]
     pub environment_value: String,
 }
