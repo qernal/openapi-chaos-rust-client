@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## organisations_projects_list
 
-> models::ListProjectResponse organisations_projects_list(organisation_id, page)
+> models::ListProjectResponse organisations_projects_list(organisation_id, page, f_name)
 Get all projects within an organisation
 
 Get all the projects linked to a specific organisation
@@ -27,6 +27,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **organisation_id** | **uuid::Uuid** | Organisation ID reference | [required] |
 **page** | Option<[**OrganisationsListPageParameter**](.md)> | Query parameters for pagination |  |
+**f_name** | Option<**String**> | Filter resource on name, if the value ends in an asterix it will be treated as a partial search otherwise, it'll be an exact match  |  |
 
 ### Return type
 
