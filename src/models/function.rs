@@ -57,13 +57,13 @@ pub struct Function {
     #[serde(rename = "secrets")]
     pub secrets: Vec<models::FunctionEnv>,
     /// Tags to limit deployment
-    #[serde(rename = "compliance", skip_serializing_if = "Option::is_none")]
-    pub compliance: Option<Vec<models::FunctionCompliance>>,
+    #[serde(rename = "compliance")]
+    pub compliance: Vec<models::FunctionCompliance>,
 }
 
 impl Function {
     /// Function
-    pub fn new(id: uuid::Uuid, project_id: uuid::Uuid, version: Version, name: String, description: String, image: String, revision: uuid::Uuid, r#type: models::FunctionType, size: models::FunctionSize, port: i32, scaling: models::FunctionScaling, deployments: Vec<models::FunctionDeployment>, secrets: Vec<models::FunctionEnv>) -> Function {
+    pub fn new(id: uuid::Uuid, project_id: uuid::Uuid, version: Version, name: String, description: String, image: String, revision: uuid::Uuid, r#type: models::FunctionType, size: models::FunctionSize, port: i32, scaling: models::FunctionScaling, deployments: Vec<models::FunctionDeployment>, secrets: Vec<models::FunctionEnv>, compliance: Vec<models::FunctionCompliance>) -> Function {
         Function {
             id,
             project_id,
@@ -79,7 +79,7 @@ impl Function {
             scaling: Box::new(scaling),
             deployments,
             secrets,
-            compliance: None,
+            compliance,
         }
     }
 }

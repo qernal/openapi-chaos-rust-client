@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **scaling** | [**models::FunctionScaling**](FunctionScaling.md) |  | 
 **deployments** | [**Vec<models::FunctionDeployment>**](FunctionDeployment.md) | List of deployments for this function | 
 **secrets** | [**Vec<models::FunctionEnv>**](FunctionEnv.md) | List of environment variables for secrets | 
-**compliance** | Option<[**Vec<models::FunctionCompliance>**](FunctionCompliance.md)> | Tags to limit deployment | [optional]
+**compliance** | [**Vec<models::FunctionCompliance>**](FunctionCompliance.md) | Tags to limit deployment | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
