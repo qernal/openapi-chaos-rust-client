@@ -51,13 +51,13 @@ pub struct FunctionBody {
     #[serde(rename = "secrets")]
     pub secrets: Vec<models::FunctionEnv>,
     /// Tags to limit deployment
-    #[serde(rename = "compliance", skip_serializing_if = "Option::is_none")]
-    pub compliance: Option<Vec<models::FunctionCompliance>>,
+    #[serde(rename = "compliance")]
+    pub compliance: Vec<models::FunctionCompliance>,
 }
 
 impl FunctionBody {
     /// Function create body
-    pub fn new(project_id: uuid::Uuid, version: Version, name: String, description: String, image: String, r#type: models::FunctionType, size: models::FunctionSize, port: i32, scaling: models::FunctionScaling, deployments: Vec<models::FunctionDeploymentBody>, secrets: Vec<models::FunctionEnv>) -> FunctionBody {
+    pub fn new(project_id: uuid::Uuid, version: Version, name: String, description: String, image: String, r#type: models::FunctionType, size: models::FunctionSize, port: i32, scaling: models::FunctionScaling, deployments: Vec<models::FunctionDeploymentBody>, secrets: Vec<models::FunctionEnv>, compliance: Vec<models::FunctionCompliance>) -> FunctionBody {
         FunctionBody {
             project_id,
             version,
@@ -71,7 +71,7 @@ impl FunctionBody {
             scaling: Box::new(scaling),
             deployments,
             secrets,
-            compliance: None,
+            compliance,
         }
     }
 }
