@@ -38,6 +38,8 @@ Class | Method | HTTP request | Description
 *HostsApi* | [**projects_hosts_list**](docs/HostsApi.md#projects_hosts_list) | **GET** /projects/{project_id}/hosts | List hosts for project
 *HostsApi* | [**projects_hosts_update**](docs/HostsApi.md#projects_hosts_update) | **PUT** /projects/{project_id}/hosts/{hostname} | Update specific host by hostname
 *HostsApi* | [**projects_hosts_verify_create**](docs/HostsApi.md#projects_hosts_verify_create) | **POST** /projects/{project_id}/hosts/{hostname}/verify | Schedule host verification task
+*LogsApi* | [**logs_list**](docs/LogsApi.md#logs_list) | **GET** /logs | Get logs
+*MetricsApi* | [**metrics_aggregations_list**](docs/MetricsApi.md#metrics_aggregations_list) | **GET** /metrics/aggregations/{metric_type} | Get metrics
 *OrganisationsApi* | [**organisations_create**](docs/OrganisationsApi.md#organisations_create) | **POST** /organisations | Create organisations
 *OrganisationsApi* | [**organisations_delete**](docs/OrganisationsApi.md#organisations_delete) | **DELETE** /organisations/{organisation_id} | Delete an organisation
 *OrganisationsApi* | [**organisations_get**](docs/OrganisationsApi.md#organisations_get) | **GET** /organisations/{organisation_id} | Get an organisation
@@ -92,11 +94,27 @@ Class | Method | HTTP request | Description
  - [ListAuthTokens](docs/ListAuthTokens.md)
  - [ListFunction](docs/ListFunction.md)
  - [ListHosts](docs/ListHosts.md)
+ - [ListLogResponse](docs/ListLogResponse.md)
  - [ListOrganisationResponse](docs/ListOrganisationResponse.md)
  - [ListProjectResponse](docs/ListProjectResponse.md)
  - [ListProviderResponse](docs/ListProviderResponse.md)
  - [ListSecretResponse](docs/ListSecretResponse.md)
  - [Location](docs/Location.md)
+ - [Log](docs/Log.md)
+ - [LogLog](docs/LogLog.md)
+ - [LogsListFTimestampsParameter](docs/LogsListFTimestampsParameter.md)
+ - [MetricHttpAggregation](docs/MetricHttpAggregation.md)
+ - [MetricHttpAggregationHttpCodes](docs/MetricHttpAggregationHttpCodes.md)
+ - [MetricHttpAggregationHttpCodesBucketsInner](docs/MetricHttpAggregationHttpCodesBucketsInner.md)
+ - [MetricHttpAggregationHttpCodesBucketsInnerHistogram](docs/MetricHttpAggregationHttpCodesBucketsInnerHistogram.md)
+ - [MetricResourceAggregation](docs/MetricResourceAggregation.md)
+ - [MetricResourceAggregationResources](docs/MetricResourceAggregationResources.md)
+ - [MetricResourceAggregationResourcesBucketsInner](docs/MetricResourceAggregationResourcesBucketsInner.md)
+ - [MetricResourceAggregationResourcesBucketsInnerHistogram](docs/MetricResourceAggregationResourcesBucketsInnerHistogram.md)
+ - [MetricResourceAggregationResourcesBucketsInnerHistogramBucketsInner](docs/MetricResourceAggregationResourcesBucketsInnerHistogramBucketsInner.md)
+ - [MetricResourceAggregationResourcesBucketsInnerHistogramBucketsInnerCounter](docs/MetricResourceAggregationResourcesBucketsInnerHistogramBucketsInnerCounter.md)
+ - [MetricResourceAggregationResourcesBucketsInnerHistogramBucketsInnerGauge](docs/MetricResourceAggregationResourcesBucketsInnerHistogramBucketsInnerGauge.md)
+ - [MetricsAggregationsList200Response](docs/MetricsAggregationsList200Response.md)
  - [NotFoundResponse](docs/NotFoundResponse.md)
  - [OrganisationBody](docs/OrganisationBody.md)
  - [OrganisationResponse](docs/OrganisationResponse.md)
