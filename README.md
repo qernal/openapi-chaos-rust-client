@@ -39,7 +39,7 @@ Class | Method | HTTP request | Description
 *HostsApi* | [**projects_hosts_update**](docs/HostsApi.md#projects_hosts_update) | **PUT** /projects/{project_id}/hosts/{hostname} | Update specific host by hostname
 *HostsApi* | [**projects_hosts_verify_create**](docs/HostsApi.md#projects_hosts_verify_create) | **POST** /projects/{project_id}/hosts/{hostname}/verify | Schedule host verification task
 *LogsApi* | [**logs_list**](docs/LogsApi.md#logs_list) | **GET** /logs | Get logs
-*MetricsApi* | [**metrics_aggregations_list**](docs/MetricsApi.md#metrics_aggregations_list) | **GET** /metrics/aggregations/{metric_type} | Get metrics
+*MetricsApi* | [**metrics_aggregations_list**](docs/MetricsApi.md#metrics_aggregations_list) | **GET** /metrics/aggregations/{metric_aggregation_type} | Get metrics
 *OrganisationsApi* | [**organisations_create**](docs/OrganisationsApi.md#organisations_create) | **POST** /organisations | Create organisations
 *OrganisationsApi* | [**organisations_delete**](docs/OrganisationsApi.md#organisations_delete) | **DELETE** /organisations/{organisation_id} | Delete an organisation
 *OrganisationsApi* | [**organisations_get**](docs/OrganisationsApi.md#organisations_get) | **GET** /organisations/{organisation_id} | Get an organisation

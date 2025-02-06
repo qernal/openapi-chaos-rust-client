@@ -26,24 +26,14 @@ pub enum MetricsAggregationsListError {
 
 
 /// Retrieve metrics for a specific project or function. Use the query parameter to request a metrics report.  > Note: Metrics are always returned in a descending order based on the timestamp. 
-pub async fn metrics_aggregations_list(configuration: &configuration::Configuration, metric_type: &str, page: Option<crate::models::OrganisationsListPageParameter>, f_project: Option<&str>, f_function: Option<&str>, f_timestamps: Option<crate::models::LogsListFTimestampsParameter>, f_histogram_interval: Option<i32>) -> Result<models::MetricsAggregationsList200Response, Error<MetricsAggregationsListError>> {
+pub async fn metrics_aggregations_list(configuration: &configuration::Configuration, metric_aggregation_type: &str, f_project: Option<&str>, f_function: Option<&str>, f_timestamps: Option<crate::models::LogsListFTimestampsParameter>, f_histogram_interval: Option<i32>) -> Result<models::MetricsAggregationsList200Response, Error<MetricsAggregationsListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/metrics/aggregations/{metric_type}", local_var_configuration.base_path, metric_type=crate::apis::urlencode(metric_type));
+    let local_var_uri_str = format!("{}/metrics/aggregations/{metric_aggregation_type}", local_var_configuration.base_path, metric_aggregation_type=crate::apis::urlencode(metric_aggregation_type));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    if let Some(ref local_var_str) = page {
-        #[derive(Serialize)]
-        struct LocalStructDeepOrganisationsListPageParameter<'a> {
-            r#page: &'a crate::models::OrganisationsListPageParameter,
-        }
-        let local_deep_struct = LocalStructDeepOrganisationsListPageParameter{ r#page: local_var_str };
-        // let params = crate::apis::parse_deep_object("page", local_var_str);
-        let params = crate::query_to_pairs(&local_deep_struct);
-        local_var_req_builder = local_var_req_builder.query(&params);
-    }
     if let Some(ref local_var_str) = f_project {
         local_var_req_builder = local_var_req_builder.query(&[("f_project", &local_var_str.to_string())]);
     }
