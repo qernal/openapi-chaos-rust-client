@@ -25,7 +25,7 @@ pub struct MetricResourceAggregationResourcesBucketsInnerHistogramBucketsInner {
     pub gauge: Option<Box<models::MetricResourceAggregationResourcesBucketsInnerHistogramBucketsInnerGauge>>,
     /// Histogram key (typically unix timestamp)
     #[serde(rename = "key", skip_serializing_if = "Option::is_none")]
-    pub key: Option<f64>,
+    pub key: Option<i64>,
     /// Histogram key as string/date-time
     #[serde(rename = "key_as_string", skip_serializing_if = "Option::is_none")]
     pub key_as_string: Option<String>,

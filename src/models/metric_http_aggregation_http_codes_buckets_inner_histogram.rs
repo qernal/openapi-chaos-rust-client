@@ -17,9 +17,9 @@ use crate::models;
 
 #[derive(Clone, Debug, PartialEq, Default, Serialize, Deserialize)]
 pub struct MetricHttpAggregationHttpCodesBucketsInnerHistogram {
-    /// Array of unqiue resources
+    /// Array of resource usage by interval  > Note: A metric will have either a `counter` or `gauge` value 
     #[serde(rename = "buckets", skip_serializing_if = "Option::is_none")]
-    pub buckets: Option<Vec<models::MetricResourceAggregationResourcesBucketsInner>>,
+    pub buckets: Option<Vec<models::MetricResourceAggregationResourcesBucketsInnerHistogramBucketsInner>>,
 }
 
 impl MetricHttpAggregationHttpCodesBucketsInnerHistogram {
