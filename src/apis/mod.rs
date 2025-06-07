@@ -97,7 +97,9 @@ pub mod metrics_api;
 pub mod organisations_api;
 pub mod projects_api;
 pub mod providers_api;
+pub mod quotas_api;
 pub mod secrets_api;
 pub mod tokens_api;
+pub mod users_api;
 
 pub mod configuration;

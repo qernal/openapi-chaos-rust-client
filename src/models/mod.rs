@@ -118,6 +118,8 @@ pub mod provider;
 pub use self::provider::Provider;
 pub mod provider_locations;
 pub use self::provider_locations::ProviderLocations;
+pub mod quota;
+pub use self::quota::Quota;
 pub mod secret_body;
 pub use self::secret_body::SecretBody;
 pub mod secret_body_patch;

@@ -44,14 +44,24 @@ Class | Method | HTTP request | Description
 *OrganisationsApi* | [**organisations_delete**](docs/OrganisationsApi.md#organisations_delete) | **DELETE** /organisations/{organisation_id} | Delete an organisation
 *OrganisationsApi* | [**organisations_get**](docs/OrganisationsApi.md#organisations_get) | **GET** /organisations/{organisation_id} | Get an organisation
 *OrganisationsApi* | [**organisations_list**](docs/OrganisationsApi.md#organisations_list) | **GET** /organisations | List organisations
+*OrganisationsApi* | [**organisations_quotas_get**](docs/OrganisationsApi.md#organisations_quotas_get) | **GET** /organisations/{organisation_id}/quotas/{quota_entity_quota} | Get specific organisation quota
+*OrganisationsApi* | [**organisations_quotas_list**](docs/OrganisationsApi.md#organisations_quotas_list) | **GET** /organisations/{organisation_id}/quotas | List organisation quotas
 *OrganisationsApi* | [**organisations_update**](docs/OrganisationsApi.md#organisations_update) | **PUT** /organisations/{organisation_id} | Update an organisation
 *ProjectsApi* | [**organisations_projects_list**](docs/ProjectsApi.md#organisations_projects_list) | **GET** /organisations/{organisation_id}/projects | Get all projects within an organisation
 *ProjectsApi* | [**projects_create**](docs/ProjectsApi.md#projects_create) | **POST** /projects | Create project
 *ProjectsApi* | [**projects_delete**](docs/ProjectsApi.md#projects_delete) | **DELETE** /projects/{project_id} | Delete project
 *ProjectsApi* | [**projects_get**](docs/ProjectsApi.md#projects_get) | **GET** /projects/{project_id} | Get project
 *ProjectsApi* | [**projects_list**](docs/ProjectsApi.md#projects_list) | **GET** /projects | List projects
+*ProjectsApi* | [**projects_quotas_get**](docs/ProjectsApi.md#projects_quotas_get) | **GET** /projects/{project_id}/quotas/{quota_entity_quota} | Get specific project quota
+*ProjectsApi* | [**projects_quotas_list**](docs/ProjectsApi.md#projects_quotas_list) | **GET** /projects/{project_id}/quotas | List project quotas
 *ProjectsApi* | [**projects_update**](docs/ProjectsApi.md#projects_update) | **PUT** /projects/{project_id} | Update project
 *ProvidersApi* | [**providers_list**](docs/ProvidersApi.md#providers_list) | **GET** /providers | Get available providers
+*QuotasApi* | [**organisations_quotas_get**](docs/QuotasApi.md#organisations_quotas_get) | **GET** /organisations/{organisation_id}/quotas/{quota_entity_quota} | Get specific organisation quota
+*QuotasApi* | [**organisations_quotas_list**](docs/QuotasApi.md#organisations_quotas_list) | **GET** /organisations/{organisation_id}/quotas | List organisation quotas
+*QuotasApi* | [**projects_quotas_get**](docs/QuotasApi.md#projects_quotas_get) | **GET** /projects/{project_id}/quotas/{quota_entity_quota} | Get specific project quota
+*QuotasApi* | [**projects_quotas_list**](docs/QuotasApi.md#projects_quotas_list) | **GET** /projects/{project_id}/quotas | List project quotas
+*QuotasApi* | [**users_quotas_get**](docs/QuotasApi.md#users_quotas_get) | **GET** /users/{user_id}/quotas/{quota_entity_quota} | Get specific user quota
+*QuotasApi* | [**users_quotas_list**](docs/QuotasApi.md#users_quotas_list) | **GET** /users/{user_id}/quotas | List user quotas
 *SecretsApi* | [**projects_secrets_create**](docs/SecretsApi.md#projects_secrets_create) | **POST** /projects/{project_id}/secrets | Create project secret
 *SecretsApi* | [**projects_secrets_delete**](docs/SecretsApi.md#projects_secrets_delete) | **DELETE** /projects/{project_id}/secrets/{secret_name} | Delete project secret
 *SecretsApi* | [**projects_secrets_get**](docs/SecretsApi.md#projects_secrets_get) | **GET** /projects/{project_id}/secrets/{secret_name} | Get project secret
@@ -62,6 +72,8 @@ Class | Method | HTTP request | Description
 *TokensApi* | [**auth_tokens_get**](docs/TokensApi.md#auth_tokens_get) | **GET** /auth/tokens/{token_id} | Get token information
 *TokensApi* | [**auth_tokens_list**](docs/TokensApi.md#auth_tokens_list) | **GET** /auth/tokens | List all user auth tokens
 *TokensApi* | [**auth_tokens_update**](docs/TokensApi.md#auth_tokens_update) | **PUT** /auth/tokens/{token_id} | Update token
+*UsersApi* | [**users_quotas_get**](docs/UsersApi.md#users_quotas_get) | **GET** /users/{user_id}/quotas/{quota_entity_quota} | Get specific user quota
+*UsersApi* | [**users_quotas_list**](docs/UsersApi.md#users_quotas_list) | **GET** /users/{user_id}/quotas | List user quotas
 
 
 ## Documentation For Models
@@ -126,6 +138,7 @@ Class | Method | HTTP request | Description
  - [ProjectResponse](docs/ProjectResponse.md)
  - [Provider](docs/Provider.md)
  - [ProviderLocations](docs/ProviderLocations.md)
+ - [Quota](docs/Quota.md)
  - [SecretBody](docs/SecretBody.md)
  - [SecretBodyPatch](docs/SecretBodyPatch.md)
  - [SecretCertificate](docs/SecretCertificate.md)

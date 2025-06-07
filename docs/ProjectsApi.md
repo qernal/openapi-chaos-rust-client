@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**projects_delete**](ProjectsApi.md#projects_delete) | **DELETE** /projects/{project_id} | Delete project
 [**projects_get**](ProjectsApi.md#projects_get) | **GET** /projects/{project_id} | Get project
 [**projects_list**](ProjectsApi.md#projects_list) | **GET** /projects | List projects
+[**projects_quotas_get**](ProjectsApi.md#projects_quotas_get) | **GET** /projects/{project_id}/quotas/{quota_entity_quota} | Get specific project quota
+[**projects_quotas_list**](ProjectsApi.md#projects_quotas_list) | **GET** /projects/{project_id}/quotas | List project quotas
 [**projects_update**](ProjectsApi.md#projects_update) | **PUT** /projects/{project_id} | Update project
 
 
@@ -153,6 +155,67 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::ListProjectResponse**](ListProjectResponse.md)
+
+### Authorization
+
+[cookie](../README.md#cookie), [token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## projects_quotas_get
+
+> Vec<models::Quota> projects_quotas_get(project_id, quota_entity_quota)
+Get specific project quota
+
+Get a specific quota for a project
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**project_id** | **uuid::Uuid** | Project ID reference | [required] |
+**quota_entity_quota** | **String** |  | [required] |
+
+### Return type
+
+[**Vec<models::Quota>**](Quota.md)
+
+### Authorization
+
+[cookie](../README.md#cookie), [token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## projects_quotas_list
+
+> Vec<models::Quota> projects_quotas_list(project_id)
+List project quotas
+
+Get the quotas for a project
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**project_id** | **uuid::Uuid** | Project ID reference | [required] |
+
+### Return type
+
+[**Vec<models::Quota>**](Quota.md)
 
 ### Authorization
 

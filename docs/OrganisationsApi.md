@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**organisations_delete**](OrganisationsApi.md#organisations_delete) | **DELETE** /organisations/{organisation_id} | Delete an organisation
 [**organisations_get**](OrganisationsApi.md#organisations_get) | **GET** /organisations/{organisation_id} | Get an organisation
 [**organisations_list**](OrganisationsApi.md#organisations_list) | **GET** /organisations | List organisations
+[**organisations_quotas_get**](OrganisationsApi.md#organisations_quotas_get) | **GET** /organisations/{organisation_id}/quotas/{quota_entity_quota} | Get specific organisation quota
+[**organisations_quotas_list**](OrganisationsApi.md#organisations_quotas_list) | **GET** /organisations/{organisation_id}/quotas | List organisation quotas
 [**organisations_update**](OrganisationsApi.md#organisations_update) | **PUT** /organisations/{organisation_id} | Update an organisation
 
 
@@ -120,6 +122,67 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::ListOrganisationResponse**](ListOrganisationResponse.md)
+
+### Authorization
+
+[cookie](../README.md#cookie), [token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## organisations_quotas_get
+
+> Vec<models::Quota> organisations_quotas_get(organisation_id, quota_entity_quota)
+Get specific organisation quota
+
+Get a specific quota for an organisation
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**organisation_id** | **uuid::Uuid** | Organisation ID reference | [required] |
+**quota_entity_quota** | **String** |  | [required] |
+
+### Return type
+
+[**Vec<models::Quota>**](Quota.md)
+
+### Authorization
+
+[cookie](../README.md#cookie), [token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## organisations_quotas_list
+
+> Vec<models::Quota> organisations_quotas_list(organisation_id)
+List organisation quotas
+
+Get the quotas for an organisation
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**organisation_id** | **uuid::Uuid** | Organisation ID reference | [required] |
+
+### Return type
+
+[**Vec<models::Quota>**](Quota.md)
 
 ### Authorization
 

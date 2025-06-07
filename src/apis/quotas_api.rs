@@ -16,42 +16,6 @@ use crate::apis::ResponseContent;
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`organisations_create`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum OrganisationsCreateError {
-    Status400(models::BadRequestResponse),
-    Status403(models::UnauthorisedResponse),
-    Status409(models::ConflictResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`organisations_delete`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum OrganisationsDeleteError {
-    Status404(models::NotFoundResponse),
-    Status403(models::UnauthorisedResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`organisations_get`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum OrganisationsGetError {
-    Status404(models::NotFoundResponse),
-    Status403(models::UnauthorisedResponse),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`organisations_list`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum OrganisationsListError {
-    Status403(models::UnauthorisedResponse),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`organisations_quotas_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -70,162 +34,42 @@ pub enum OrganisationsQuotasListError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`organisations_update`]
+/// struct for typed errors of method [`projects_quotas_get`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum OrganisationsUpdateError {
+pub enum ProjectsQuotasGetError {
     Status404(models::NotFoundResponse),
-    Status400(models::BadRequestResponse),
     Status403(models::UnauthorisedResponse),
     UnknownValue(serde_json::Value),
 }
 
-
-/// Create an organisation
-pub async fn organisations_create(configuration: &configuration::Configuration, organisation_body: Option<crate::models::OrganisationBody>) -> Result<models::OrganisationResponse, Error<OrganisationsCreateError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/organisations", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-    local_var_req_builder = local_var_req_builder.json(&organisation_body);
-
-    let local_var_req = local_var_req_builder.build()?;
-    // FIXME: Remove after template fix
-    // dbg!(&local_var_req);
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<OrganisationsCreateError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
+/// struct for typed errors of method [`projects_quotas_list`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ProjectsQuotasListError {
+    Status404(models::NotFoundResponse),
+    Status403(models::UnauthorisedResponse),
+    UnknownValue(serde_json::Value),
 }
 
-/// Delete organisation, this will also delete all the resources within the organisation
-pub async fn organisations_delete(configuration: &configuration::Configuration, organisation_id: &str) -> Result<models::DeletedResponse, Error<OrganisationsDeleteError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/organisations/{organisation_id}", local_var_configuration.base_path, organisation_id=crate::apis::urlencode(organisation_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    // FIXME: Remove after template fix
-    // dbg!(&local_var_req);
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<OrganisationsDeleteError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
+/// struct for typed errors of method [`users_quotas_get`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UsersQuotasGetError {
+    Status404(models::NotFoundResponse),
+    Status403(models::UnauthorisedResponse),
+    UnknownValue(serde_json::Value),
 }
 
-/// Get a single organisation
-pub async fn organisations_get(configuration: &configuration::Configuration, organisation_id: &str) -> Result<models::OrganisationResponse, Error<OrganisationsGetError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/organisations/{organisation_id}", local_var_configuration.base_path, organisation_id=crate::apis::urlencode(organisation_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    // FIXME: Remove after template fix
-    // dbg!(&local_var_req);
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<OrganisationsGetError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
+/// struct for typed errors of method [`users_quotas_list`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UsersQuotasListError {
+    Status404(models::NotFoundResponse),
+    Status403(models::UnauthorisedResponse),
+    UnknownValue(serde_json::Value),
 }
 
-/// List organisations
-pub async fn organisations_list(configuration: &configuration::Configuration, page: Option<crate::models::OrganisationsListPageParameter>, f_name: Option<&str>) -> Result<models::ListOrganisationResponse, Error<OrganisationsListError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/organisations", local_var_configuration.base_path);
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = page {
-        #[derive(Serialize)]
-        struct LocalStructDeepOrganisationsListPageParameter<'a> {
-            r#page: &'a crate::models::OrganisationsListPageParameter,
-        }
-        let local_deep_struct = LocalStructDeepOrganisationsListPageParameter{ r#page: local_var_str };
-        // let params = crate::apis::parse_deep_object("page", local_var_str);
-        let params = crate::query_to_pairs(&local_deep_struct);
-        local_var_req_builder = local_var_req_builder.query(&params);
-    }
-    if let Some(ref local_var_str) = f_name {
-        local_var_req_builder = local_var_req_builder.query(&[("f_name", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
-        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
-    };
-
-    let local_var_req = local_var_req_builder.build()?;
-    // FIXME: Remove after template fix
-    // dbg!(&local_var_req);
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<OrganisationsListError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
 
 /// Get a specific quota for an organisation
 pub async fn organisations_quotas_get(configuration: &configuration::Configuration, organisation_id: &str, quota_entity_quota: &str) -> Result<Vec<models::Quota>, Error<OrganisationsQuotasGetError>> {
@@ -293,14 +137,14 @@ pub async fn organisations_quotas_list(configuration: &configuration::Configurat
     }
 }
 
-/// Update an organisation
-pub async fn organisations_update(configuration: &configuration::Configuration, organisation_id: &str, organisation_body: Option<crate::models::OrganisationBody>) -> Result<models::OrganisationResponse, Error<OrganisationsUpdateError>> {
+/// Get a specific quota for a project
+pub async fn projects_quotas_get(configuration: &configuration::Configuration, project_id: &str, quota_entity_quota: &str) -> Result<Vec<models::Quota>, Error<ProjectsQuotasGetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/organisations/{organisation_id}", local_var_configuration.base_path, organisation_id=crate::apis::urlencode(organisation_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+    let local_var_uri_str = format!("{}/projects/{project_id}/quotas/{quota_entity_quota}", local_var_configuration.base_path, project_id=crate::apis::urlencode(project_id), quota_entity_quota=crate::apis::urlencode(quota_entity_quota));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
@@ -308,7 +152,6 @@ pub async fn organisations_update(configuration: &configuration::Configuration, 
     if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
         local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
     };
-    local_var_req_builder = local_var_req_builder.json(&organisation_body);
 
     let local_var_req = local_var_req_builder.build()?;
     // FIXME: Remove after template fix
@@ -321,7 +164,106 @@ pub async fn organisations_update(configuration: &configuration::Configuration, 
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<OrganisationsUpdateError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<ProjectsQuotasGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Get the quotas for a project
+pub async fn projects_quotas_list(configuration: &configuration::Configuration, project_id: &str) -> Result<Vec<models::Quota>, Error<ProjectsQuotasListError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/projects/{project_id}/quotas", local_var_configuration.base_path, project_id=crate::apis::urlencode(project_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    // FIXME: Remove after template fix
+    // dbg!(&local_var_req);
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ProjectsQuotasListError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Get a specific quota for a user
+pub async fn users_quotas_get(configuration: &configuration::Configuration, user_id: &str, quota_entity_quota: &str) -> Result<Vec<models::Quota>, Error<UsersQuotasGetError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/users/{user_id}/quotas/{quota_entity_quota}", local_var_configuration.base_path, user_id=crate::apis::urlencode(user_id), quota_entity_quota=crate::apis::urlencode(quota_entity_quota));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    // FIXME: Remove after template fix
+    // dbg!(&local_var_req);
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UsersQuotasGetError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Get the quotas for a user
+pub async fn users_quotas_list(configuration: &configuration::Configuration, user_id: &str) -> Result<Vec<models::Quota>, Error<UsersQuotasListError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/users/{user_id}/quotas", local_var_configuration.base_path, user_id=crate::apis::urlencode(user_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(ref local_var_token) = local_var_configuration.bearer_access_token {
+        local_var_req_builder = local_var_req_builder.bearer_auth(local_var_token.to_owned());
+    };
+
+    let local_var_req = local_var_req_builder.build()?;
+    // FIXME: Remove after template fix
+    // dbg!(&local_var_req);
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UsersQuotasListError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
